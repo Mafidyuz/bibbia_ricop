@@ -1,0 +1,263 @@
+\documentclass[12pt, letterpaper]{article}
+\usepackage{color}   %May be necessary if you want to color links
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true, %set true if you want colored links
+    linktoc=all,     %set to all if you want both sections and subsections linked
+    linkcolor=black,  %choose some color if you want links to stand out
+}
+\usepackage[utf8x]{inputenc}
+\usepackage[table]{xcolor}
+\usepackage[english]{babel}
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
+\usepackage[breakable]{tcolorbox}
+\newtcolorbox{dati}[1][]{colback=green!30!white, bottomtitle=1.5mm,breakable,#1}
+\newtcolorbox{variabili}[1][]{colback=red!30!white, bottomtitle=1.5mm,breakable,#1}
+\newtcolorbox{vincoli}[1][]{colback=orange!30!white, bottomtitle=1.5mm,breakable,#1}
+\newtcolorbox{obiettivo}[1][]{colback=yellow!30!white, bottomtitle=1.5mm,breakable,#1}
+\newcommand{\problema}[5]{
+	#1
+	\begin{dati}
+		\paragraph{Dati} #2
+	\end{dati}
+	\begin{variabili}
+		\paragraph{Variabili} #3
+	\end{variabili}
+	\begin{vincoli}
+		\paragraph{Vincoli} #4
+	\end{vincoli}
+	\begin{obiettivo}
+		\paragraph{Obiettivo} #5
+	\end{obiettivo}
+}
+
+\title{Ricerca operativa}
+\author{Mario Petruccelli \cr Università degli studi di Milano}
+\date{A.A. 2018/2019}
+
+\addto\captionsenglish{% Replace "english" with the language you use
+  \renewcommand{\contentsname}%
+    {Sommario}%
+}
+
+\begin{document}
+
+	\begin{titlepage}
+		\maketitle
+		\newpage
+		\tableofcontents
+	\end{titlepage}
+
+
+	\section{Introduzione}
+	\textbf{Ricerca operativa:} Disciplina che affronta la risoluzione di problemi decisionali complessi tramite 	\underline{modelli matematici} e algoritmi.
+	\\\\$\underbrace{\textbf{Sistema organizzato}}_{\substack{\text{Input: Decisioni} \\ \text {Output: Prestazioni}}}  \rightarrow \underbrace{\textbf{Modello}}_{\substack{\text{Input: Dati e parametri}\\ \text{Output: Decisioni e prestazioni }}}$
+	\subparagraph{Problemi}
+	\begin{itemize}
+	\item Pochi dati
+	\item Troppa semplificazione
+	\end{itemize}
+	\subsection{Tassonomia modelli}
+	\begin{itemize}
+		\item \textbf{Descrittivi} $\rightarrow$ (es modellini, plastici, \dots)
+		\item \textbf{Predittivi} $\rightarrow$ Più complicati (es andamento mercati finanziari, previsioni, \dots)
+		\item \textbf{Prescrittivi} $\rightarrow$ Modelli di problemi di ottimizzazione
+		\\ \hspace*{0.8cm} $\downarrow$
+		\\\textbf{Metodologie:} Teoria e algoritmi di ottimizzazione, teoria grafi e reti di flusso, teoria dei giochi e delle decisioni.
+		\\\\La descrizione del problema sarà attraverso: \underline{vincoli}, \underline{obiettivi}.
+	\end{itemize}
+	\paragraph{Esempio di problemi decisionali}
+	\begin{itemize}
+		\item Finanza (investimenti)
+		\item Produzione (dimensionamento, organizzazione, \dots)
+		\item Logistica (gestione scorte, quanta merce, \dots)
+		\item Gestione (pianificazione, turnistica personale, \dots)
+		\item Servizi (rotte, \dots)
+	\end{itemize}
+	\paragraph{NB}\textit{Lo stesso modello può servire per risolvere problemi diversi.}
+	\\\\\textbf{Set covering }Problema per la gestione di un territorio. I problemi dei sismografi e dei ripetitori sono diversi ma si ragiona allo stesso modo.
+	\paragraph{Programmazione matematica}Ottimizzare una funzione di più variabili, spesso soggette a vincoli.
+	\\\\\textbf{Risoluzione}
+	\begin{itemize}
+		\item Analisi struttura e creazione modello matematico.
+		\item Definizione soluzione.
+	\end{itemize}
+	\paragraph{Programmazione}Pianificazione delle azioni necessarie per individuare la soluzione ottima.
+	\begin{itemize}
+		\item Programmazione lineare continua.
+		\item Programmazione lineare intera $\rightarrow$ difficile: può non concludersi.
+		\item Programmazione booleana.
+		\item Programmazione non lineare.
+		\item Programmazione stocastica.
+	\end{itemize}
+	\subsection{Problema dello zaino} n oggetti di valore $p_j$ e peso $w_j$ j=1 \dots n ed è data la capacità massima b di un contenitore.
+	\paragraph{Problema} quali oggetti inserire nel contenitore senza superare capacità. 
+	\paragraph{Obiettivo}Massimizzare il valore degli oggetti.
+	\\\\Si tratta di un piano di \textbf{ottimizzazione} e ne definiamo i 4 componenti fondamentali.
+	\\\begin{itemize}
+		\item Dati $\rightarrow p_j, w_j, b$ 
+		\item Variabili (decisioni) $\rightarrow x_j= \begin{cases} \text{1 se il j-esimo oggetto viene inserito} \\ \text{0 altrimenti}\end{cases}$
+		\item Vincoli
+		\item Obiettivo $\rightarrow \underbrace{\sum_{j=1}^n p_jx_j}_{\text{Funzione obiettivo $\rightarrow$ max $\sum_{j=1}^np_jx_j$}}$ = Valore complessivo degli oggetti inseriti.\\
+	\end{itemize}
+	Se $x_j$ = 1 allora anche $p_jx_j$ = 1 $\rightarrow$ ragiono uguale per i vincoli.\\\\
+	$\sum_{j=1}^nw_jx_j \leq b \rightarrow$ valore complessivo ingombro.\\\\
+	Quindi \textbf{modello} max $\sum_{j=1}^np_jx_j$ \hspace*{0.3cm} $\sum_{j=1}^nw_jx_j \leq b$ \hspace*{0.3cm} $x_j \in \{0,1\} j = 1...n$
+	\subsection{Esempi di problemi}
+	
+		\subsubsection{Problema trasporto e localizzazione impianti}
+			
+			Dove aprire unità produttive e come trasportare prodotto dalle unità aperte ai magazzini per soddisfare domanda.
+			
+			\paragraph{Obiettivo}Minimizzare costi di apertura e trasporto.
+			
+				\begin{dati}
+					\paragraph{Dati}
+						\begin{itemize}
+							\item $n$ siti candidati per unità produttive, ognuna con capacità massima $a_j$ $j=1, \dots, n$.
+							\item $m$ magazzini con una domanda da soddisfare $b_j$ $j=1, \dots, n$.
+							\item $c_{ij}$ costo di trasporto di un'unità di prodotto dal sito $i$ al magazzino $j$.
+						\end{itemize}
+						L'attivazione di un'unità produttiva nel sito $i$ ha un costo fisso $f_i$.
+				\end{dati}
+					
+				\begin{variabili}
+					\paragraph{Variabili}
+						\begin{itemize}
+							\item $x_{ij} \geq 0$ unità di merce trasportata da sito $i$ a magazzino $j$.
+							\item Dobbiamo aggiungere una variabile binaria per decidere se aprire o meno unità produttiva.
+								$$y_i = 
+								\begin{cases} 
+									1 & \textit{se apro impianto i}\\
+									0 & altrimenti
+								\end{cases}
+								$$
+								\textsc{NB} Dobbiamo rispettare che sia un problema di programmazione lineare, \textit{i.e.} non moltiplicare variabili tra di loro.
+						\end{itemize}
+				\end{variabili}
+				
+				\begin{vincoli}
+					\paragraph{Vincoli}
+						\begin{itemize}
+							\item Fissato un $i$ questo non può superare la sua capacità produttiva
+								$$\sum_{j=1}^m x_{ij} \leq a_i \quad \forall i=1, \dots, n$$
+								$$\sum_{i=1}^n x_{ij} \geq b_j \quad \forall j=1, \dots, m$$
+								$$x_{ij} \geq 0 \quad j=1, \dots, n \quad i=1, \dots, m$$
+								
+							
+						\end{itemize}
+				\end{vincoli}				
+				
+				\begin{obiettivo}
+					\paragraph{Obiettivo}
+						$$\min \sum_{i=1}^n \sum_{j=1}^m c_{ij} x_{ij}$$
+						$$\min \sum_{i,j} c_{ij}x_{ij} + \sum_{i=1}^n f_i y_i$$
+						$$\text{Subject to} \sum_{j=1}^m x_{ij} \leq a_i y_i \quad \forall i$$
+						$$\sum_{i=1}^n x_{ij} \geq b_j \text{ } \forall j \qquad x_{ij} \geq 0 \text{ } \forall i,j \qquad
+						 y_i \in \{0,1\} \text{ } \forall i $$	
+				\end{obiettivo}	
+				
+		\subsubsection{Problema assegnamento}					
+			\problema
+				{ Associare a ciascuna persona una sola attività in modo che tutte le attività siano svolte e sia minima la somma dei tempi impiegatiper svolgere.
+				}
+				{\begin{itemize}
+					\item $n$ lavoratori.
+					\item $n$ attività.
+					\item Indichiamo con $t_{ij} > 0$ il tempo che impiega il lavoratore $i$, l'attività $j$ con $i,j= 1, \dots, n$
+				\end{itemize}
+				}
+				{$$\text{Variabile binaria } x_{ij}= 
+				\begin {cases}
+					1 & \textit{se i svolge j}\\
+					0 & altrimenti
+					
+				\end{cases}
+				$$}
+				{
+				$$\sum_{j=1}^n x_{ij} = 1 \quad \forall i = 1, \dots, n$$
+				$$\sum_{i=1}^n x_{ij} = 1 \quad \forall j = 1, \dots, n$$
+				$$x_{ij} \leq \{0,1\} \quad \forall i,j$$
+				}
+				{$$\min \sum_{i=1}^n \sum_{j=1}^n t_{ij}x_{ij}$$
+				Si prende il tempo solo se $x_{ij}$ è a 1.}
+			
+		%\newpage	
+		\subsubsection{Mix Produttivo}
+			\problema
+				{
+				Determinare quali prodotti produrre e in quale quantità per massimizzare il profitto complessivo.
+				}
+				{\begin{itemize}
+					\item $i=1, \dots, m$ risorse produttive in quantità limitata. La massima disponibilità è $b_1, \dots, b_m$
+					\item Per produrre un'unità di prodotto $j-esimo$ si utilizzano $a_{ij}$ unità della risorsa $i-esima$.
+					\item Agli $n$ prodotti sono associati i profitti unitari $c_1, \dots, c_n$ \textit{(profitto per unità di prodotto)}. Si suppone che tutta la produzione venga venduta.
+				\end{itemize}}
+				{$x_j$ = numero prodotti di tipo $j$}
+				{\begin{center}
+					\begin{tabular}{llll}
+						 & \textbf{Tablet} & \textbf{Portatile} & \textbf{Ore uomo}\\
+						 \textit{Profitto unitario} & 30 & 20 &  \\
+						 \textit{Finitura} & 4 & 6 & 540\\
+						 \textit{Controllo qualità} & 1 & 1 & 100
+					\end{tabular}
+				\end{center}}
+				{$$\max \sum_{j=1}^n c_j x_j = \max 30x_t + 20 x_p$$
+				Esempio: $$\max 30x_t + 20x_p$$ 
+				$$8x_t + 4x_p \leq 640 $$
+				$$4x_t + 6x_p \leq 540$$
+				$$x_t + x_p \leq 100$$
+				$$x_t, x_p \geq 0$$
+				$$\sum_{j=1}^n a_{ij}x_j \leq b_i \quad i=1,\dots,m$$
+				$$x_j \geq 0 \quad j=1,\dots,n$$
+				}
+			\paragraph{Esempio vernici}
+				\problema
+					{Quantità vernici che bisogna produrre per massimizzare il guadagno.
+					}
+					{\begin{itemize}
+						\item $3k\$$ per E.
+						\item $2k\$$ per I.
+						\item Disponibilità A 6 tonnellate.
+						\item Disponibilità B 8 tonnellate.
+					\end{itemize}}
+					{\begin{itemize}
+						\item $x_E$ Tonnellate vernice E.
+						\item $x_I$ Tonnellate vernice I.
+					\end{itemize}}
+					{\begin{center}
+						\qquad\qquad\qquad\qquad Vernici\\
+						Materie prime
+						\begin{tabular}{lll}
+								& E & I \\
+							A 	& 1	& 2 \\
+							B	& 2	& 1
+						\end{tabular}
+					\end{center}}
+					{$$\max 3x_E + 2x_I$$
+					$$1x_E + 2x_I \leq 6$$
+					$$2x_E + 1x_I \leq 8$$
+					$$x_I \leq x_E + 1$$
+					$$x_I \leq 2$$
+					$$x_E, x_I \geq 0 $$
+					}
+			\paragraph{Esempio problema dieta}
+				\problema{Quali ingredienti e in che quantità miscelare per minimizzare il costo del mangime.}
+					{Ogni dose deve contenere \textit{almeno} 2hg di proteine, 4hg di carboidrati, 3hg di grasso.}
+					{$x_j$ = kg ingredienti di $j$.}
+					{\begin{tabular}{lllll}
+						
+						Ingrediente & Proteine & Carboidrati & Grasso & Costo $\$$/kg\\
+						1 & 1 & 4 & 3 & 3\\
+						2 & 3 & 4 & 2 & 6\\
+						3 & 2 & 3 & 3 & 5\\
+						4 & 2 & 2 & 4 & 6\\
+					\end{tabular}}
+					{$$\min 3x_1 + 6x_2 + 5x_3 + 6x_4$$
+					$$1x_1 + 3x_2 + 2x_3 + 2x_4 \geq 2 \text{ proteine}$$
+					$$4x_1 + 4x_2 + 3x_3 + 2x_4 \geq 4 \text{ carboidrati}$$
+					$$3x_1 + 2x_2 + 3x_3 + 4x_4 \geq 3 \text{ grasso}$$
+					$$x_j \geq 0$$
+					}
+					
+\end{document}

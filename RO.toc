@@ -1,0 +1,38 @@
+\select@language {english}
+\contentsline {section}{\numberline {1}Introduzione}{1}{section.1}
+\contentsline {subparagraph}{Problemi}{1}{section*.2}
+\contentsline {subsection}{\numberline {1.1}Tassonomia modelli}{1}{subsection.1.1}
+\contentsline {paragraph}{Esempio di problemi decisionali}{1}{section*.3}
+\contentsline {paragraph}{NB}{2}{section*.4}
+\contentsline {paragraph}{Programmazione matematica}{2}{section*.5}
+\contentsline {paragraph}{Programmazione}{2}{section*.6}
+\contentsline {subsection}{\numberline {1.2}Problema dello zaino}{2}{subsection.1.2}
+\contentsline {paragraph}{Problema}{2}{section*.7}
+\contentsline {paragraph}{Obiettivo}{2}{section*.8}
+\contentsline {subsection}{\numberline {1.3}Esempi di problemi}{3}{subsection.1.3}
+\contentsline {subsubsection}{\numberline {1.3.1}Problema trasporto e localizzazione impianti}{3}{subsubsection.1.3.1}
+\contentsline {paragraph}{Obiettivo}{3}{section*.9}
+\contentsline {paragraph}{Dati}{3}{section*.10}
+\contentsline {paragraph}{Variabili}{4}{section*.11}
+\contentsline {paragraph}{Vincoli}{4}{section*.12}
+\contentsline {paragraph}{Obiettivo}{4}{section*.13}
+\contentsline {subsubsection}{\numberline {1.3.2}Problema assegnamento}{5}{subsubsection.1.3.2}
+\contentsline {paragraph}{Dati}{5}{section*.14}
+\contentsline {paragraph}{Variabili}{5}{section*.15}
+\contentsline {paragraph}{Vincoli}{5}{section*.16}
+\contentsline {paragraph}{Obiettivo}{5}{section*.17}
+\contentsline {subsubsection}{\numberline {1.3.3}Mix Produttivo}{5}{subsubsection.1.3.3}
+\contentsline {paragraph}{Dati}{6}{section*.18}
+\contentsline {paragraph}{Variabili}{6}{section*.19}
+\contentsline {paragraph}{Vincoli}{6}{section*.20}
+\contentsline {paragraph}{Obiettivo}{6}{section*.21}
+\contentsline {paragraph}{Esempio vernici}{7}{section*.22}
+\contentsline {paragraph}{Dati}{7}{section*.23}
+\contentsline {paragraph}{Variabili}{7}{section*.24}
+\contentsline {paragraph}{Vincoli}{7}{section*.25}
+\contentsline {paragraph}{Obiettivo}{7}{section*.26}
+\contentsline {paragraph}{Esempio problema dieta}{7}{section*.27}
+\contentsline {paragraph}{Dati}{8}{section*.28}
+\contentsline {paragraph}{Variabili}{8}{section*.29}
+\contentsline {paragraph}{Vincoli}{8}{section*.30}
+\contentsline {paragraph}{Obiettivo}{8}{section*.31}
