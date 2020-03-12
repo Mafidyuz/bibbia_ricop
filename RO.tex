@@ -1,4 +1,5 @@
-\documentclass[12pt, letterpaper]{article}
+\documentclass[12pt, twoside, letterpaper]{article}
+\usepackage[top=2cm,bottom=4cm,left=3cm,right=3cm,asymmetric]{geometry}% aggiungere ^twoside^
 \usepackage{color}   %May be necessary if you want to color links
 \usepackage{hyperref}
 \hypersetup{
@@ -23,12 +24,39 @@
 	\begin{variabili}
 		\paragraph{Variabili} #3
 	\end{variabili}
-	\begin{vincoli}
-		\paragraph{Vincoli} #4
-	\end{vincoli}
 	\begin{obiettivo}
-		\paragraph{Obiettivo} #5
+		\paragraph{Obiettivo} #4
 	\end{obiettivo}
+	\begin{vincoli}
+		\paragraph{Vincoli} #5
+	\end{vincoli}
+}
+\newcommand{\problemai}[5]{
+	#1
+	\begin{dati}
+		\paragraph{Dati} 
+			\begin{itemize}
+				#2
+			\end{itemize}
+	\end{dati}
+	\begin{variabili}
+		\paragraph{Variabili} 
+			\begin{itemize}
+				#3
+			\end{itemize}
+	\end{variabili}
+	\begin{obiettivo}
+		\paragraph{Obiettivo} 
+			\begin{itemize}
+				#4
+			\end{itemize}
+	\end{obiettivo}
+	\begin{vincoli}
+		\paragraph{Vincoli}
+			\begin{itemize}
+				#5
+			\end{itemize}
+	\end{vincoli}
 }
 
 \title{Ricerca operativa}
@@ -50,170 +78,127 @@
 
 
 	\section{Introduzione}
-	\textbf{Ricerca operativa:} Disciplina che affronta la risoluzione di problemi decisionali complessi tramite 	\underline{modelli matematici} e algoritmi.
-	\\\\$\underbrace{\textbf{Sistema organizzato}}_{\substack{\text{Input: Decisioni} \\ \text {Output: Prestazioni}}}  \rightarrow \underbrace{\textbf{Modello}}_{\substack{\text{Input: Dati e parametri}\\ \text{Output: Decisioni e prestazioni }}}$
-	\subparagraph{Problemi}
-	\begin{itemize}
-	\item Pochi dati
-	\item Troppa semplificazione
-	\end{itemize}
-	\subsection{Tassonomia modelli}
-	\begin{itemize}
-		\item \textbf{Descrittivi} $\rightarrow$ (es modellini, plastici, \dots)
-		\item \textbf{Predittivi} $\rightarrow$ Più complicati (es andamento mercati finanziari, previsioni, \dots)
-		\item \textbf{Prescrittivi} $\rightarrow$ Modelli di problemi di ottimizzazione
-		\\ \hspace*{0.8cm} $\downarrow$
-		\\\textbf{Metodologie:} Teoria e algoritmi di ottimizzazione, teoria grafi e reti di flusso, teoria dei giochi e delle decisioni.
-		\\\\La descrizione del problema sarà attraverso: \underline{vincoli}, \underline{obiettivi}.
-	\end{itemize}
-	\paragraph{Esempio di problemi decisionali}
-	\begin{itemize}
-		\item Finanza (investimenti)
-		\item Produzione (dimensionamento, organizzazione, \dots)
-		\item Logistica (gestione scorte, quanta merce, \dots)
-		\item Gestione (pianificazione, turnistica personale, \dots)
-		\item Servizi (rotte, \dots)
-	\end{itemize}
-	\paragraph{NB}\textit{Lo stesso modello può servire per risolvere problemi diversi.}
-	\\\\\textbf{Set covering }Problema per la gestione di un territorio. I problemi dei sismografi e dei ripetitori sono diversi ma si ragiona allo stesso modo.
-	\paragraph{Programmazione matematica}Ottimizzare una funzione di più variabili, spesso soggette a vincoli.
-	\\\\\textbf{Risoluzione}
-	\begin{itemize}
-		\item Analisi struttura e creazione modello matematico.
-		\item Definizione soluzione.
-	\end{itemize}
-	\paragraph{Programmazione}Pianificazione delle azioni necessarie per individuare la soluzione ottima.
-	\begin{itemize}
-		\item Programmazione lineare continua.
-		\item Programmazione lineare intera $\rightarrow$ difficile: può non concludersi.
-		\item Programmazione booleana.
-		\item Programmazione non lineare.
-		\item Programmazione stocastica.
-	\end{itemize}
-	\subsection{Problema dello zaino} n oggetti di valore $p_j$ e peso $w_j$ j=1 \dots n ed è data la capacità massima b di un contenitore.
-	\paragraph{Problema} quali oggetti inserire nel contenitore senza superare capacità. 
-	\paragraph{Obiettivo}Massimizzare il valore degli oggetti.
-	\\\\Si tratta di un piano di \textbf{ottimizzazione} e ne definiamo i 4 componenti fondamentali.
-	\\\begin{itemize}
-		\item Dati $\rightarrow p_j, w_j, b$ 
-		\item Variabili (decisioni) $\rightarrow x_j= \begin{cases} \text{1 se il j-esimo oggetto viene inserito} \\ \text{0 altrimenti}\end{cases}$
-		\item Vincoli
-		\item Obiettivo $\rightarrow \underbrace{\sum_{j=1}^n p_jx_j}_{\text{Funzione obiettivo $\rightarrow$ max $\sum_{j=1}^np_jx_j$}}$ = Valore complessivo degli oggetti inseriti.\\
-	\end{itemize}
-	Se $x_j$ = 1 allora anche $p_jx_j$ = 1 $\rightarrow$ ragiono uguale per i vincoli.\\\\
-	$\sum_{j=1}^nw_jx_j \leq b \rightarrow$ valore complessivo ingombro.\\\\
-	Quindi \textbf{modello} max $\sum_{j=1}^np_jx_j$ \hspace*{0.3cm} $\sum_{j=1}^nw_jx_j \leq b$ \hspace*{0.3cm} $x_j \in \{0,1\} j = 1...n$
-	\subsection{Esempi di problemi}
 	
-		\subsubsection{Problema trasporto e localizzazione impianti}
-			
-			Dove aprire unità produttive e come trasportare prodotto dalle unità aperte ai magazzini per soddisfare domanda.
-			
-			\paragraph{Obiettivo}Minimizzare costi di apertura e trasporto.
-			
-				\begin{dati}
-					\paragraph{Dati}
-						\begin{itemize}
-							\item $n$ siti candidati per unità produttive, ognuna con capacità massima $a_j$ $j=1, \dots, n$.
-							\item $m$ magazzini con una domanda da soddisfare $b_j$ $j=1, \dots, n$.
-							\item $c_{ij}$ costo di trasporto di un'unità di prodotto dal sito $i$ al magazzino $j$.
-						\end{itemize}
-						L'attivazione di un'unità produttiva nel sito $i$ ha un costo fisso $f_i$.
-				\end{dati}
-					
-				\begin{variabili}
-					\paragraph{Variabili}
-						\begin{itemize}
-							\item $x_{ij} \geq 0$ unità di merce trasportata da sito $i$ a magazzino $j$.
-							\item Dobbiamo aggiungere una variabile binaria per decidere se aprire o meno unità produttiva.
-								$$y_i = 
-								\begin{cases} 
-									1 & \textit{se apro impianto i}\\
-									0 & altrimenti
-								\end{cases}
-								$$
-								\textsc{NB} Dobbiamo rispettare che sia un problema di programmazione lineare, \textit{i.e.} non moltiplicare variabili tra di loro.
-						\end{itemize}
-				\end{variabili}
-				
-				\begin{vincoli}
-					\paragraph{Vincoli}
-						\begin{itemize}
-							\item Fissato un $i$ questo non può superare la sua capacità produttiva
-								$$\sum_{j=1}^m x_{ij} \leq a_i \quad \forall i=1, \dots, n$$
-								$$\sum_{i=1}^n x_{ij} \geq b_j \quad \forall j=1, \dots, m$$
-								$$x_{ij} \geq 0 \quad j=1, \dots, n \quad i=1, \dots, m$$
-								
-							
-						\end{itemize}
-				\end{vincoli}				
-				
-				\begin{obiettivo}
-					\paragraph{Obiettivo}
-						$$\min \sum_{i=1}^n \sum_{j=1}^m c_{ij} x_{ij}$$
-						$$\min \sum_{i,j} c_{ij}x_{ij} + \sum_{i=1}^n f_i y_i$$
-						$$\text{Subject to} \sum_{j=1}^m x_{ij} \leq a_i y_i \quad \forall i$$
-						$$\sum_{i=1}^n x_{ij} \geq b_j \text{ } \forall j \qquad x_{ij} \geq 0 \text{ } \forall i,j \qquad
-						 y_i \in \{0,1\} \text{ } \forall i $$	
-				\end{obiettivo}	
-				
-		\subsubsection{Problema assegnamento}					
-			\problema
-				{ Associare a ciascuna persona una sola attività in modo che tutte le attività siano svolte e sia minima la somma dei tempi impiegatiper svolgere.
-				}
-				{\begin{itemize}
-					\item $n$ lavoratori.
-					\item $n$ attività.
-					\item Indichiamo con $t_{ij} > 0$ il tempo che impiega il lavoratore $i$, l'attività $j$ con $i,j= 1, \dots, n$
-				\end{itemize}
-				}
-				{$$\text{Variabile binaria } x_{ij}= 
-				\begin {cases}
-					1 & \textit{se i svolge j}\\
-					0 & altrimenti
-					
-				\end{cases}
-				$$}
-				{
-				$$\sum_{j=1}^n x_{ij} = 1 \quad \forall i = 1, \dots, n$$
-				$$\sum_{i=1}^n x_{ij} = 1 \quad \forall j = 1, \dots, n$$
-				$$x_{ij} \leq \{0,1\} \quad \forall i,j$$
-				}
-				{$$\min \sum_{i=1}^n \sum_{j=1}^n t_{ij}x_{ij}$$
-				Si prende il tempo solo se $x_{ij}$ è a 1.}
-			
-		%\newpage	
-		\subsubsection{Mix Produttivo}
-			\problema
-				{
-				Determinare quali prodotti produrre e in quale quantità per massimizzare il profitto complessivo.
-				}
-				{\begin{itemize}
-					\item $i=1, \dots, m$ risorse produttive in quantità limitata. La massima disponibilità è $b_1, \dots, b_m$
-					\item Per produrre un'unità di prodotto $j-esimo$ si utilizzano $a_{ij}$ unità della risorsa $i-esima$.
-					\item Agli $n$ prodotti sono associati i profitti unitari $c_1, \dots, c_n$ \textit{(profitto per unità di prodotto)}. Si suppone che tutta la produzione venga venduta.
+		\textbf{Ricerca operativa:} disciplina che affronta la risoluzione di problemi decisionali complessi tramite 	modelli matematici e algoritmi.
+	Si parte da un \textbf{sistema organizzato} e lo si formalizza in un \textbf{modello matematico} per poi risolverlo tramite \textbf{algoritmi}.
+		\subsection{Tassonomia modelli}
+		\begin{itemize}
+			\item \textbf{Descrittivi} $\rightarrow$ Modelli che cercano di descrivere o simulare sistemi complessi \textit{(e.g. modellini, plastici, \dots)}
+			\item \textbf{Predittivi} $\rightarrow$ Modelli che cercano di predire dei dati \textit{(e.g. andamento mercati finanziari, previsioni, \dots)}
+			\item \textbf{Prescrittivi} $\rightarrow$ Modelli che trovano la soluzione ottimale ad un problema \textit{(sono quelli che studieremo in questo corso)}. 
+			\\\\La descrizione del problema avverrà attraverso \textbf{vincoli}, \textbf{obiettivi}.
+		\end{itemize}
+		\paragraph{Esempio di problemi decisionali}
+		\begin{itemize}
+			\item Finanza (investimenti)
+			\item Produzione (dimensionamento, organizzazione, \dots)
+			\item Logistica (gestione scorte, quanta merce, \dots)
+			\item Gestione (pianificazione, turnistica personale, \dots)
+			\item Servizi (rotte, \dots)
+		\end{itemize}
+		\paragraph{NB}\textit{Lo stesso modello può servire per risolvere problemi diversi.}
+		\\\\\textbf{Set covering }Problema per la gestione di un territorio. I problemi dei sismografi e dei ripetitori sono diversi ma si ragiona allo stesso modo.
+		\subsection{Programmazione matematica} La programmazione matematica (intesa come \textit{pianificazione} delle azioni necessarie per individuare la soluzione ottima) è ciò che rappresenta il processo risolutivo nella ricerca operativa: 
+			\begin{itemize}
+				\item Analisi del problema e scrittura di un modello matematico.
+				\item Definizione e applicazione di un metodo di soluzione.
+			\end{itemize}
+		In particolar modo, la programmazione matematica si occupa di ottimizzare una funzione di più variabili, spesso soggette a dei vincoli. A seconda del tipo di modello abbiamo:
+		\begin{itemize}
+			\item Programmazione lineare continua.
+			\item Programmazione lineare intera.
+			\item Programmazione booleana.
+		\end{itemize}
+	
+	\section{Esempi di problemi}
+	
+		\subsection{Problema dello zaino} 
+				\problema{
+					Ci sono $n$ oggetti di valore $p_j$ e ingombro $w_j$ per $j=1 \dots n$ ed è data la capacità massima $b$ di un contenitore.
+			\paragraph{Problema} Quali oggetti inserire nel contenitore senza superare capacità. 
+			\paragraph{Obiettivo}Massimizzare il valore degli oggetti. Si tratta di un problema di \textbf{ottimizzazione} e va formalizzato in modello matematico. Ci sono 4 componenti fondamentali.}
+				{I dati sono informazioni conosciute a priori, in questo caso sono:
+				\begin{itemize}
+					\item $p_j \rightarrow$ valore dell'oggetto $j$.
+					\item $w_j \rightarrow$ ingombro dell'oggetto $j$.
+					\item $b \rightarrow$ capacità massima del contenitore.
 				\end{itemize}}
-				{$x_j$ = numero prodotti di tipo $j$}
-				{\begin{center}
-					\begin{tabular}{llll}
-						 & \textbf{Tablet} & \textbf{Portatile} & \textbf{Ore uomo}\\
-						 \textit{Profitto unitario} & 30 & 20 &  \\
-						 \textit{Finitura} & 4 & 6 & 540\\
-						 \textit{Controllo qualità} & 1 & 1 & 100
-					\end{tabular}
-				\end{center}}
-				{$$\max \sum_{j=1}^n c_j x_j = \max 30x_t + 20 x_p$$
-				Esempio: $$\max 30x_t + 20x_p$$ 
-				$$8x_t + 4x_p \leq 640 $$
-				$$4x_t + 6x_p \leq 540$$
-				$$x_t + x_p \leq 100$$
-				$$x_t, x_p \geq 0$$
-				$$\sum_{j=1}^n a_{ij}x_j \leq b_i \quad i=1,\dots,m$$
-				$$x_j \geq 0 \quad j=1,\dots,n$$
-				}
-			\paragraph{Esempio vernici}
+				{Le variabili sono elementi che rappresentano una decisione. 
+				\begin{itemize}
+					\item $x_j= \begin{cases} \text{1 se il j-esimo oggetto viene inserito} \\ \text{0 altrimenti}\end{cases}$
+				\end{itemize}}
+				{L'obiettivo è la funzione che rappresenta il risultato da ottenere.
+				\begin{itemize}
+					\item $max \sum_{j=1}^np_jx_j \rightarrow \textit{massimizzare il valore}$
+				\end{itemize}				  }
+				{I vincoli sono le limitazioni che abbiamo sui dati. 
+				\begin{itemize}
+					\item $\sum_{j=1}^n w_j x_j \leq b \rightarrow$ la somma degli ingombri degli oggetti presi non può superare la capacità del contenitore 
+					 \item $x_j \in \{0,1\} \quad j=1 \dots n$
+				\end{itemize}}
+		
+		\subsection{Problema di trasporto e localizzazione di impianti}
+			\problema
+			{Ci sono $n$ siti candidati ad ospitare unità produttive, ciascuno con capacità massima $a_i$ con $i=1 \dots n$. Vi sono $m$ magazzini, ognuno con una domanda da soddisfare $b_j$ con $j = 1 \dots m$. Indichiamo con $c_{ij}$ il costo di trasporto di una unità di prodotto dal sito $i$ al magazzino $j$. L'attivazione di una unità produttiva nel sito $i$ ha un costo fisso $f_i$. 
+			\paragraph{Problema} Dove aprire le unità produttive e come trasportare il prodotto dalle unità produttive aperte ai magazini in modo da soddisfare la domanda.
+			\paragraph{Obiettivo} Minimizzare i costi di apertura e trasporto.}
+			{\begin{itemize}
+				\item $a_i \rightarrow$ capacità di produzione del sito $i$
+				\item $b_j \rightarrow$ domanda del magazzino $j$ 
+				\item $c_{ij} \rightarrow$ costo del trasporto di un'unità dal sito $i$ al magazzino $j$. 
+				\item $f_i \rightarrow$ costo di attivazione unità nel sito $i$.  
+			\end{itemize}} 
+			{\begin{itemize} 
+				\item $y_i = \begin{cases} \text{1 se il sito $i$ ospita un'unità produttiva} \\ \text{0 altrimenti}\end{cases}$
+				\item $x_{ij} =$ numero di unità trasportata dal sito $i$ al magazzino $j$.
+			\end{itemize}}
+			{\begin{itemize}
+				\item $min \sum_{i=1}^n \sum_{j=1}^m c_{ij}x_{ij} + \sum_{i=1}^n f_i y_i \rightarrow$ minimizzare il costo di attivazione di un unità nei vari siti e il costo dei trasporti delle unità.
+			\end{itemize}}
+			{\begin{itemize}
+				\item $\sum_{j=1}^m x_{ij} \leq a_i y_i \quad i = 1 \dots n \rightarrow$ le unità trasportate da un sito i non possono superare la capacità $a_i$ di quel sito $i$.
+				\item $\sum_{i=1}^n x_{ij} \geq b_j \quad j=1 \dots m \rightarrow$ Le unità inviate ad un magazzino $j$ dai vari siti deve soddisfare la domanda di quel magazzino.
+				\item $x_{ij} \geq 0 \quad i=1 \dots n \quad j = 1 \dots m$
+				\item $y_i \in \{0,1\} \quad i=1 \dots n$
+			\end{itemize}}
+						
+		\subsection{Problema assegnamento}					
+			\problemai
+			{Ci sono $n$ lavoratori e $n$ attività. Indichiamo con $t_{ij}$ il tempo impiegato dal lavoratore $i$ per svolgere l'attività $j$.
+			\paragraph{Problema} Assegnare a ciascun lavoratore una sola attività, così che tutte le attività siano svolte.
+			\paragraph{Obiettivo} Minimizzare il tempo richiesto a svolgere l'attività $j$.}
+			{\item $t_{ij} \rightarrow$ tempo impiegato dal lavoratore $i$ per svolgere l'attività $j$.}
+			{\item $x_{ij} = \begin{cases} \text{1 se il lavoratore $i$ svolge l'attività $j$} \\ \text{0 altrimenti}\end{cases}$ }
+			{\item $min \sum_{i=1}^n\sum_{j=1}^n t_{ij} x_{ij} \rightarrow$ minimizzare il tempo speso per svolgere tutte le attività dei vari lavoratori.}
+			{\item $\sum_{j=1}^n x_{ij} = 1 \quad \forall i \rightarrow$ a ogni lavoratore è associata una sola attività.
+			\item $\sum_{i=1}^n x_{ij} = 1 \quad \forall j \rightarrow$ a ogni attività è associata nn solo lavoratore.
+			\item $x_{ij} \in \{0,1\} \quad \forall i,j$}
+
+		
+		\subsection{Mix Produttivo}
+			\problemai
+				{Si hanno $m$ risorse produttive con disponibilità $b_i$. Si possono produrre $n$ prodotti diversi. Per produrre una unità di un prodotto \textit{j-esimo} si utilizzano $a_{ij}$ unità della risorsa \textit{i-esima}. Ciascun prodotto ha un profitto unitario $c_j$.}
+				{\item $b_i \rightarrow$ disponibilità risorsa \textit{i-esima}.
+				\item $a_{ij} \rightarrow$ unità della risorsa \textit{i-esima} usate per produrre un prodotto \textit{j-esimo}.
+				\item $c_j \rightarrow$ profitto di un unità del prodotto $j$. }
+				{\item $x_j =$ unità prodotte del prodotto \textit{j-esimo}.}
+				{\item $max \sum_{j=1}^n c_j x_j \rightarrow$ massimizzare il profitto tra i vari prodotti.}
+				{\item $\sum_{j=1}^n a_{ij} x_j \leq b_i \quad \forall i \rightarrow$ le risorse usate nella produzione non possono superare la disponibilità di ciascuna risorsa.
+				\item $x_j \geq 0 \quad \forall j$}
+
+
+			\subsubsection{Vernici}
 				\problema
-					{Quantità vernici che bisogna produrre per massimizzare il guadagno.
+					{L'azienda produce due tipi di vernici, una vernice per interni (I) e una venrice per esterni (E), usando due materie prime indicate con A e B. La disponibilità al giorno di materia prima A è pari a 6 ton, mentre quella di materia prima B è di 8 ton. La quantità di A e B consumata per produrre una ton di vernice E ed I è riportata nella seguente tabella.
+											
+											\quad\qquad\qquad\qquad Vernici\\
+						Materie prime
+						\begin{tabular}{lll}
+								& E & I \\
+							A 	& 1	& 2 \\
+							B	& 2	& 1
+						\end{tabular}
+
 					}
 					{\begin{itemize}
 						\item $3k\$$ per E.
@@ -226,13 +211,6 @@
 						\item $x_I$ Tonnellate vernice I.
 					\end{itemize}}
 					{\begin{center}
-						\qquad\qquad\qquad\qquad Vernici\\
-						Materie prime
-						\begin{tabular}{lll}
-								& E & I \\
-							A 	& 1	& 2 \\
-							B	& 2	& 1
-						\end{tabular}
 					\end{center}}
 					{$$\max 3x_E + 2x_I$$
 					$$1x_E + 2x_I \leq 6$$
@@ -259,5 +237,5 @@
 					$$3x_1 + 2x_2 + 3x_3 + 4x_4 \geq 3 \text{ grasso}$$
 					$$x_j \geq 0$$
 					}
-					
+						
 \end{document}

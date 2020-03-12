@@ -1,7 +1,9 @@
 \BOOKMARK [1][-]{section.1}{Introduzione}{}% 1
 \BOOKMARK [2][-]{subsection.1.1}{Tassonomia modelli}{section.1}% 2
-\BOOKMARK [2][-]{subsection.1.2}{Problema dello zaino}{section.1}% 3
-\BOOKMARK [2][-]{subsection.1.3}{Esempi di problemi}{section.1}% 4
-\BOOKMARK [3][-]{subsubsection.1.3.1}{Problema trasporto e localizzazione impianti}{subsection.1.3}% 5
-\BOOKMARK [3][-]{subsubsection.1.3.2}{Problema assegnamento}{subsection.1.3}% 6
-\BOOKMARK [3][-]{subsubsection.1.3.3}{Mix Produttivo}{subsection.1.3}% 7
+\BOOKMARK [2][-]{subsection.1.2}{Programmazione matematica}{section.1}% 3
+\BOOKMARK [1][-]{section.2}{Esempi di problemi}{}% 4
+\BOOKMARK [2][-]{subsection.2.1}{Problema dello zaino}{section.2}% 5
+\BOOKMARK [2][-]{subsection.2.2}{Problema di trasporto e localizzazione di impianti}{section.2}% 6
+\BOOKMARK [2][-]{subsection.2.3}{Problema assegnamento}{section.2}% 7
+\BOOKMARK [2][-]{subsection.2.4}{Mix Produttivo}{section.2}% 8
+\BOOKMARK [3][-]{subsubsection.2.4.1}{Vernici}{subsection.2.4}% 9
