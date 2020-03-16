@@ -16,6 +16,19 @@
 \newtcolorbox{variabili}[1][]{colback=red!30!white, bottomtitle=1.5mm,breakable,#1}
 \newtcolorbox{vincoli}[1][]{colback=orange!30!white, bottomtitle=1.5mm,breakable,#1}
 \newtcolorbox{obiettivo}[1][]{colback=yellow!30!white, bottomtitle=1.5mm,breakable,#1}
+\newenvironment{rcases}
+  {\left.\begin{aligned}}
+  {\end{aligned}\right\rbrace}
+\newcommand{\casi}[3]{
+	$#1 = \begin{cases} \text{#2} \\ \text{#3} \end{cases}$
+}
+\newcommand{\img}[3] {
+	\begin{figure}[h]
+		\caption{#1}
+		\centering
+		\includegraphics[scale=#2]{img/#3}\\
+	\end{figure}
+}
 \newcommand{\problema}[5]{
 	#1
 	\begin{dati}
@@ -189,7 +202,7 @@
 
 			\subsubsection{Vernici}
 				\problema
-					{L'azienda produce due tipi di vernici, una vernice per interni (I) e una venrice per esterni (E), usando due materie prime indicate con A e B. La disponibilità al giorno di materia prima A è pari a 6 ton, mentre quella di materia prima B è di 8 ton. La quantità di A e B consumata per produrre una ton di vernice E ed I è riportata nella seguente tabella.
+					{L'azienda produce due tipi di vernici, una vernice per interni (\texttt{I}) e una venrice per esterni (\texttt{E}), usando due materie prime indicate con \texttt{A} e \texttt{B}. La disponibilità al giorno di materia prima \texttt{A} è pari a \texttt{6 ton}, mentre quella di materia prima \texttt{B} è di \texttt{8 ton}. La quantità di \texttt{A} e \texttt{B} consumata per produrre una \texttt{ton} di vernice \texttt{E} ed \texttt{I} è riportata nella seguente tabella.
 											
 											\quad\qquad\qquad\qquad Vernici\\
 						Materie prime
@@ -198,44 +211,251 @@
 							A 	& 1	& 2 \\
 							B	& 2	& 1
 						\end{tabular}
-
+						
+					Si ipotizza che tutta la vernice prodotta venga venduta. Il prezzo di vendita per tonnellata è \texttt{3K\$} per \texttt{E} e \texttt{2Ks} per \texttt{I}. L'azienda ha effettuato un'indagine di mercato con i seguenti esisti: 
+					\begin{itemize}
+						\item La domanda giornaliera di vernice \texttt{I} non super mai di più di \texttt{1 ton} quella di vernice \texttt{E}.
+						\item La domanda massima giornaliera di vernice \texttt{I} è di \texttt{2 ton.}
+					\end{itemize}
 					}
 					{\begin{itemize}
-						\item $3k\$$ per E.
-						\item $2k\$$ per I.
-						\item Disponibilità A 6 tonnellate.
-						\item Disponibilità B 8 tonnellate.
+						\item \texttt{3k\$} per \texttt{E}.
+						\item \texttt{2k\$} per \texttt{I}.
+						\item Disponibilità \texttt{A} 6 tonnellate.
+						\item Disponibilità \texttt{B} 8 tonnellate.
 					\end{itemize}}
 					{\begin{itemize}
 						\item $x_E$ Tonnellate vernice E.
 						\item $x_I$ Tonnellate vernice I.
 					\end{itemize}}
-					{\begin{center}
-					\end{center}}
-					{$$\max 3x_E + 2x_I$$
-					$$1x_E + 2x_I \leq 6$$
-					$$2x_E + 1x_I \leq 8$$
-					$$x_I \leq x_E + 1$$
-					$$x_I \leq 2$$
-					$$x_E, x_I \geq 0 $$
+					{\begin{itemize}
+						\item $\max 3x_E + 2x_I$
+					\end{itemize}}
+					{\begin{itemize}
+						\item $x_E + 2x_I \leq 6$
+						\item $2x_E + x_I \leq 8$
+						\item $x_I - x_E \leq 1$
+						\item $x_I \leq 2$
+						\item $x_E, x_I \geq 0 $
+					\end{itemize}}
+			\subsubsection{Problema della dieta}
+				\problemai{Un determinato mangime per animali deve contenere in ogni dose almeno \texttt{2hg} di proteine, \texttt{4hg} di carboidrati e \texttt{3hg} di grasso. Si possono miscelare 4 ingredienti con le seguenti caratteristiche (\textit{in hg per ogni kg)}.\\\\
+				\begin{tabular}{lllll}
+					Ingrediente & Proteine & Carboidrati & Grasso & Costo euro/kg\\					1 & 1 & 4 & 3 & 3\\
+					2 & 3 & 4 & 2 & 6\\
+					3 & 2 & 3 & 3 & 5\\
+					4 & 2 & 2 & 4 & 6\\
+				\end{tabular}
+				\paragraph{Problema} Determinare quali ingredienti ed in quale quantità miscelare in modo da minimizzare il costo del mangime.} 
+					{\item Ogni dose deve contenere \textit{almeno} \texttt{2hg} di proteine, \texttt{4hg} di carboidrati, \texttt{3hg} di grasso.}
+					{\item $x_j$ = quantità di ingredienti $j$ in \texttt{kg}.}
+					{\item $min \sum_{j=1}^4 c_jx_j \rightarrow$ minimizzare il costo.}
+					{\item $\min 3x_1 + 6x_2 + 5x_3 + 6x_4$
+					\item $x_1 + 3x_2 + 2x_3 + 2x_4 \geq 2hg \text{ proteine}$
+					\item $4x_1 + 4x_2 + 3x_3 + 2x_4 \geq 4hg \text{ carboidrati}$
+					\item$3x_1 + 2x_2 + 3x_3 + 4x_4 \geq 3hg \text{ grasso}$
+					\item $x_j \geq 0 \quad \j = 1 \dots 4$ 
 					}
-			\paragraph{Esempio problema dieta}
-				\problema{Quali ingredienti e in che quantità miscelare per minimizzare il costo del mangime.}
-					{Ogni dose deve contenere \textit{almeno} 2hg di proteine, 4hg di carboidrati, 3hg di grasso.}
-					{$x_j$ = kg ingredienti di $j$.}
-					{\begin{tabular}{lllll}
-						
-						Ingrediente & Proteine & Carboidrati & Grasso & Costo $\$$/kg\\
-						1 & 1 & 4 & 3 & 3\\
-						2 & 3 & 4 & 2 & 6\\
-						3 & 2 & 3 & 3 & 5\\
-						4 & 2 & 2 & 4 & 6\\
-					\end{tabular}}
-					{$$\min 3x_1 + 6x_2 + 5x_3 + 6x_4$$
-					$$1x_1 + 3x_2 + 2x_3 + 2x_4 \geq 2 \text{ proteine}$$
-					$$4x_1 + 4x_2 + 3x_3 + 2x_4 \geq 4 \text{ carboidrati}$$
-					$$3x_1 + 2x_2 + 3x_3 + 4x_4 \geq 3 \text{ grasso}$$
-					$$x_j \geq 0$$
-					}
-						
+		
+		\subsection{Miscelazione}			
+			\problemai
+			{
+				Due tipi di benzina si ottengono miscelando 3 tipi di materie grezze. Le due benzine sono vendute rispettivamente a  40 cent/l e a 30 cent/l. Le materie grezze sono vendute a 10 cent/l, 16 cent/l, 14 cent/l e sono disponibili in quantità giornaliere pari a 100000 l, 70000 l, 120000 l.
+				\paragraph{Problema} Produrre benzina con le quantità di materie a disposizione.
+				\paragraph{Obiettivo} Massimizzare il profitto tenendo conto del costo delle materie.
+			}
+			{
+				\item $r_j \rightarrow$ ricavo benzina \textit{j-esima}.
+				\item $c_i \rightarrow$ costo petrolio \textit{i-esimo}.
+				\item $a_i \rightarrow$ quantità giornaliera di petrolio \textit{i-esimo}.
+				\item $\%_{ij}^{m/M} \rightarrow$ percentuale minima e massima di petrolio \textit{i-esimo} da avere all'interno della benzina \textit{j-esima}.
+			}
+			{
+				\item $p_{ij} = $ percentuale di petrolio $i$ in benzina $j$.
+				\item $b_j =$ litri di benzina \textit{j-esima} prodotti.
+				\item $p_i = $ litri di petrolio \textit{i-esimo} usati.
+				\item $x_{ij} := p_{ij} b_j \rightarrow$ litri di petrolio \textit{i-esimo} usato per produrre i litri di benzina \textit{j-esima} \textit{(ciò permette di ottenere un modello lineare)}.
+			}
+			{
+				\item $max [ \underbrace{\sum_{j=1}^n(\sum_{i=1}^m x_{ij}) r_j}_{\text{litri prodotti di benzina \textit{j-esima}}} - \underbrace{\sum_{i=1}^m(\sum_{j=1}^nx_{ij}) c_i}_{\text{litri di petrolio \textit{i-esimo utilizzati}}}] \rightarrow$ massimizzare il ricavo netto della produzione.
+			}
+			{
+				\item $\sum_{j=1}^n x_{ij} \leq a_i \quad \forall i \rightarrow$ i litri di petrolio \textit{i-esimo} utilizzati non possono superare i litri disponibili giornalmente.
+				\item $\%_{ij}^m (\sum_{k=1}^m x_{kj}) \leq x_{ij} \leq \%_{ij}^M (\sum_{k=1}^m x_{kj}) \quad \forall i,j \rightarrow$ i litri di petrolio \textit{i-esimo} all'interno della miscela per benzina \textit{j-esima} deve essere compresa tra gli estremi di percentuale dati dalla tabella.
+				\item $x_{ij} \geq 0 \quad \forall i,j$
+			}
+			
+		\subsection{Turnazione personale}
+			
+			\problemai{
+				Ci sono 3 turni lavorativi (mattina, pomeriggio, notte). Sono presenti $n$ lavoratori che svolgono 5 turni settimanali, dopo un turno lavorativo per un lavoratore ce ne devono essere almeno 2 di riposo. Ogni lavoratore propone 5 turni in ordine di preferenza.
+			
+				\paragraph{Problema} Organizzare turni in modo tale che ognuno si coperto.
+				\paragraph{Obiettivo} Minimizzare il grado di soddisfacibilità globale.
+			}{
+				\item $p_{gt}^j \rightarrow$ grado di soddisfacibilità del lavoratore \textit{j-esimo} a lavorare il giorno $g$ nel turno $t$.
+				\item $r_{gt} \rightarrow$ numero lavoratori necessari il giorno $g$ al turno $t$.
+			}{
+				\item $x_{gt}^j = \begin{cases} \text{1 se il lavoratore \textit{j-esimo} lavora il giorno $g$ al turno $t$} \\ \text{0 altrimenti} \end{cases}$
+			}{
+				\item $min \sum_{j=1}^n \sum_{g \in G} \sum_{t \in T} p_{gt}^j x_{gt}^j$
+			}{
+				\item $\sum_{j=1}^n x_{gt}^j \geq r_{gt} \quad \forall g,t \rightarrow$ per ogni turno giornaliero ci devono essere tanti lavoratori quanti sono richiesti.
+				\item $\sum_{g \in G} \sum_{t \in T} x_{gt}^j \geq 5 \quad \forall j \rightarrow$ ogni lavoratore deve lavorare per almeno 5 turni.	
+				\item 	\begin{equation*}
+							\begin{rcases}
+								x_{l,m}^j + x_{l,p}^j + x_{l,s}^j \leq 1 \\
+								x_{l,p}^j + x_{l,s}^j + x_{ma,m}^j \leq 1 \\
+								\dots \\
+								x_{d,m}^j + x_{d,p}^j + x_{d,s}^j \leq 1 \\
+							\end{rcases}
+							\substack{\text{ $\forall j \rightarrow$ ogni lavoratore deve avere almeno 2 turni di riposo dopo un } \\ \text{turno di lavoro.}}
+						\end{equation*} 
+
+			}
+			
+			
+		\subsection{Locazione di servizi}
+			\problemai
+			{
+				Abbiamo un insieme $N = \{1 \dots n\}$ di potenziali localizzazioni di servizi ed un insieme $I = \{1 \dots m\}$ di clienti. Ogni località $j$ ha una capacità $u_j$ e costo di attivazione $c_j$. Ogni cliente $i$ ha una richiesta $b_i$. Il costo da sostenere per servire il cliente $i$ dalla località $j$ è $h_{ij}$ e ogni cliente è servito da una sola località.
+				
+				\paragraph{Problema} Determinare la localizzazione di servizi così da soddisfare ogni cliente.
+				\paragraph{Obiettivo} Minimizzare il costo di attivazione e di servizio complessivo.
+			}
+			{
+				\item $u_j \rightarrow$ capacità località \textit{j-esima}.
+				\item $c_j \rightarrow$ costo attivazione località \textit{j-esima}.
+				\item $b_i \rightarrow$ richiesta cliente \textit{i-esimo}.
+				\item $h_{ij} \rightarrow$ costo per servire il cliente $i$ dalla località $j$.
+			}
+			{
+				\item $y_j = \begin{cases} \text{1 se è attivo un servizio nella località \textit{j-esima}} \\ \text{0 altrimenti} \end{cases}$
+				\item $x_{ij} = \begin{cases} \text{1 se il cliente \textit{i} viene servito dalla località \textit{j}} \\  \text{0 altrimenti} \end{cases}$
+			}
+			{
+				\item $min [ \sum_{j \in N} \sum_{i \in I} h_{ij}x_{ij} + \sum_{j \in N} c_jy_j] \rightarrow$ minimizzare il costo di attivazione di servizio tra i vari siti e clienti.
+			}
+			{
+				\item $\sum_{j \in N} x_{ij} = 1 \quad \forall i \in I \rightarrow$ ogni cliente $i$ è servito da una sola località $j$.
+				\item $\sum_{i \in I} x_{ij} b_i \leq u_j \quad \forall j \in N \rightarrow$ ogni località $j$ attiva deve soddisfare la domanda $b_i$ del cliente $i$ associato.
+				\item $x_{ij} \leq y_j \quad \forall i \in I, j \in N$
+				\item $x_{ij} \in \{0,1\} \quad \forall i,j$
+				\item $y_j \in \{0,1\} \quad \forall j$ 
+				
+				Gli ultimi 3 sono vincoli opzionali (ma non troppo). Il simplesso risolve il modello nel continuo, da cui tira poi fuori la soluzione intera.
+			}
+		
+		\subsection{Bin packing}
+			\problemai{Ci sono $n$ oggetti, ciascuno con ingombro $w_j$. Sono dati dei contenitori di capacità $b$.
+			
+			\paragraph{Problema} Assegnare gli oggetti ai contenitori rispettando le capacità.
+			\paragraph{Obiettivo} Minimizzare il numero di contenitori usati.
+			}{
+				\item $w_j \rightarrow$ ingombro oggetto \textit{j-esimo}.
+				\item $b$ capacità contenitori. 
+			}{
+				\item $x_{ij} = \begin{cases} \text{1 se il contenitore \textit{i-esimo} accetta l'oggetto \textit{j-esimo}} \\ \text{0 altrimenti} \end{cases}$ 
+				\item $y_i = \begin{cases} \text{1 se uso il contenitore \textit{i-esimo}} \\ \text{0 altrimenti} \end{cases}$ 
+			}{
+				\item $min \sum_{i=1}^n y_i \rightarrow$ minimizzare il numero di contenitori usati.
+			}{
+				\item $\sum_{j=1}^n x_{ij} w_j \leq b y_i \quad \forall i \rightarrow$ tutti gli oggetti contenuti in ogni contenitore \textit{i-esimo} non devono superare la capacità $b$.
+				\item $\sum_{i=1}^n x_{ij} = 1 \quad \forall j \rightarrow$ ogni oggetto può essere messo in un unico contenitore.
+				\item $x_{ij} \in \{0,1\} \quad \forall i,j$
+				\item $y_i \in \{0,1\} \quad \forall i$
+			}
+		
+		\subsection{Problema di assegnamento}
+			\problemai{
+				Ci sono $m$ macchine identiche e $n$ lavorazioni. Ogni lavorazione $j$ richiede di essere processata da una qualsiasi delle $m$ macchine per una durata ininterrotta $p_j$. Ogni macchina processa una sola lavorazione alla volta.
+				
+				\paragraph{Problema} Come assegnare le lavorazioni alle macchine.
+				\paragraph{Obiettivo} Minimizzare l'istante di completamento della macchina che termina per ultima.
+			}{
+				\item $p_j \rightarrow$ durata della lavorazione \textit{j-esima}.
+			}{	
+				\item $x_{ij} = \begin{cases} \text{1 se la macchina \textit{i-esima} effettua la lavorazione $j$} \\ \text{0 altrimenti} \end{cases}$
+				\item $T \geq 0 \rightarrow$ istante di completamento della macchina che termina per ultima.
+			}{
+				\item $min$ $max \sum_{i=1}^n \sum_{j=1}^m x_{ij} p_j \rightarrow$ minimizzare l'istante di completamento della macchina che termina per ultima.
+			}{
+				\item $\sum_{j=1}^m x_{ij}p_j \leq T \quad \forall i \rightarrow$ ogni macchina termina le lavorazioni al più in contemporanea con la macchna che termina per ultima.
+				\item $\sum_{i=1}^n x_{ij} = 1 \quad \forall j \rightarrow$ ogni lavorazione \textit{i-esima} è effettuata da na e una sola macchina.
+				\item $x_{ij} \in \{0,1\} \quad \forall i,j$
+			}
+			
+		\subsection{Problema di sequenziamento monoprocessore}
+			\problemai{
+				C'è una macchina e ci sono $n$ lavorazioni. Ogni lavorazione $j$ ha un tempo di processamento $p_j$, è disponibile a partire dall'istante $r_j$ e deve essere completata entro la data $d_j$. La macchina può processare una sola lavorazione alla volta. 
+				
+				\paragraph{Problema} In quale ordine processare le lavorazioni sulla macchina.
+				\paragraph{Obiettivo} Minimizzare la somma degli istanti di completamento di tutte le lavorazioni.
+			}{
+				\item $p_j \rightarrow$ tempo di processamento della lavorazione \textit{j-esima}.
+				\item $r_j \rightarrow$ istante minimo di inizio della lavorazione \textit{j-esima}.
+				\item $d_j \rightarrow$ istante massimo di completamento della lavorazione \textit{j-esima}.
+			}{
+				\item \casi{x_{ij}}{1 se la lavorazione $i$ precede la lavorazione $j$}{0 altrimenti}
+				\item $c_j$ = istante di completamento del lavoro \textit{j-esimo}.
+			}{
+				\item $min \sum_{j=1}^n c_j \rightarrow$ minimizzare la somma degli istanti di completamento delle lavorazioni.
+			}{
+				\item $c_j \leq c_k - p_k + M (1-x_{jk}) \quad 1 \leq j < k \leq n \quad M \in R \rightarrow$ se $j$ precede $k$, il suo istante di completamento al più coincide con quello di inizio di $k$.
+				\item $c_k \leq c_j - p_j + M x_{jk} \quad 1 \leq j < k \leq n \quad M \in R \rightarrow$ vincolo ridondante, poichè tiene conto del caso opposto ($k$ precede $j$).
+				\item $0 \leq p_j + r_j \leq c_j \leq d_j \quad \forall j = 1 \dots n \rightarrow$ l'istante minimo di fine processo $j$ $(p_j+r_j)$ al più coincide con il suo istante di completamento effettivo, ed al più coincide con l'istante massimo di completamento.
+				\item $x_{jk} \in \{0,1\} \quad 1 \leq j < k \leq n$
+			}
+			
+		\subsection{Problema di pianificazione della produzione}
+			\problemai{
+				Determiniamo un piano di produzione di un prodotto specifico nell'arco di $n$ periodi. Per ciascun periodo conosciamo la domanda da soddisfare $d_t$, il costo di produzione $c_t$ e il costo di magazzino $i_t$ per unità di prodotto. La capacità massima di produzione è $c$.
+				
+				\paragraph{Problema} Pianificare la produzione così da soddisfare la domanda per ogni periodo.
+				
+				\paragraph{Obiettivo} minimizzare i costi.
+			}{
+				\item $d_t \rightarrow$ domanda del periodo \textit{t-esimo}.
+				\item $c_t \rightarrow$ costo di produzione di un'unità nel periodo \textit{t-esimo}.
+				\item $i_t \rightarrow$ costo di magazzino di un unità nel periodo \textit{t-esimo}.
+				\item $c \rightarrow$ capacità massima di produzione.
+			}{
+				\item $x_t =$ unità del prodotto nel periodo \textit{t-esimo}.
+				\item $m_t =$ unità del prodotto immagazzinate al termine del periodo \textit{t-esimo}
+			}{
+				\item $min \sum _{t=1}^n c_t x_t + \sum_{t=1}^n i_t m_t \rightarrow$ minimizzare il costo di produzione e di magazzino.
+			}{
+				\item $m_{t-1} + x_t = d_t + m_t \quad t = 1 \dots n \rightarrow$ le unità immagazzinate dal periodo precedente insieme alle unità prodotte nel periodo $t$ attuale devono coincidere con la domanda nel periodo $t$ sommati ai prodotti rimanenti immagazzinati.
+				\item $x_t \leq c \quad t = 1 \dots n \rightarrow$ le unità prodotte non possono superare la capacità produttiva.
+			}
+			Questo problema è rappresentabile tramite un \textbf{modello di flusso}:
+			\img{Modello di flusso}{0.7}{img1.png}
+			\\A ogni periodo la produzione deve soddisfare la domanda (e non superare la capacità) e le unità rimaste vanno in magazzino.	
+			
+			\subsubsection{Variante lotto minimo}
+				Ogni periodo il lotto minimo è pari a $L$.
+				\paragraph{Variabili} \casi{y_t}{1 se produco un lotto al periodo \textit{t-esimo}}{0 altrimenti}
+				
+				\paragraph{Vincoli} 
+					\begin{itemize}
+						\item $x_t \geq L y_t \quad t=1 \dots n$
+						\item $x_t \leq c y_t \quad t=1 \dots n$
+					\end{itemize}
+					
+			\subsubsection{Variante produzione con costi fissi}
+				Se in un periodo è stata prodotta almeno una unità di prodotto si aggiunge un costo fisso $k$.
+				\paragraph{Obiettivo}
+					$min \sum_{t=1}^n c_t x_t + \sum_{t=1}^n i_t m_t + \sum_{t=1}^n k y_c \rightarrow$ aggiungo il costo fisso nel caso in cui produco qualcosa.
+			
+			\subsubsection{Variante multiprodotto}
+				Possono essere fabbricati più prodotti durante gli $n$ periodi.
+				
+				\paragraph{Variabili}
+					\begin{itemize}
+						\item $x_t^j \rightarrow$ unità di prodotto $j$ fabbricate nel peridodo $t$.
+						\item $m_t^j \rightarrow$ unità di prodotto $j$ immagazzinate nel periodo $t$.						
+					\end{itemize}
+					
+				\paragraph{Obiettivo}
+					$min \sum_j(\sum_{t=1}^n c_t^j x_t^j + \sum_{t=1}^n i_t^j m_t^j + \sum_{t=1}^n ky_t^j)$
 \end{document}

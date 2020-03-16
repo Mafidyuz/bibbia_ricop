@@ -33,11 +33,69 @@
 \contentsline {paragraph}{Vincoli}{7}{section*.25}
 \contentsline {subsubsection}{\numberline {2.4.1}Vernici}{7}{subsubsection.2.4.1}
 \contentsline {paragraph}{Dati}{7}{section*.26}
-\contentsline {paragraph}{Variabili}{7}{section*.27}
+\contentsline {paragraph}{Variabili}{8}{section*.27}
 \contentsline {paragraph}{Obiettivo}{8}{section*.28}
 \contentsline {paragraph}{Vincoli}{8}{section*.29}
-\contentsline {paragraph}{Esempio problema dieta}{8}{section*.30}
+\contentsline {subsubsection}{\numberline {2.4.2}Problema della dieta}{8}{subsubsection.2.4.2}
+\contentsline {paragraph}{Problema}{8}{section*.30}
 \contentsline {paragraph}{Dati}{8}{section*.31}
 \contentsline {paragraph}{Variabili}{8}{section*.32}
-\contentsline {paragraph}{Obiettivo}{8}{section*.33}
-\contentsline {paragraph}{Vincoli}{8}{section*.34}
+\contentsline {paragraph}{Obiettivo}{9}{section*.33}
+\contentsline {paragraph}{Vincoli}{9}{section*.34}
+\contentsline {subsection}{\numberline {2.5}Miscelazione}{9}{subsection.2.5}
+\contentsline {paragraph}{Problema}{9}{section*.35}
+\contentsline {paragraph}{Obiettivo}{9}{section*.36}
+\contentsline {paragraph}{Dati}{9}{section*.37}
+\contentsline {paragraph}{Variabili}{9}{section*.38}
+\contentsline {paragraph}{Obiettivo}{10}{section*.39}
+\contentsline {paragraph}{Vincoli}{10}{section*.40}
+\contentsline {subsection}{\numberline {2.6}Turnazione personale}{10}{subsection.2.6}
+\contentsline {paragraph}{Problema}{10}{section*.41}
+\contentsline {paragraph}{Obiettivo}{10}{section*.42}
+\contentsline {paragraph}{Dati}{10}{section*.43}
+\contentsline {paragraph}{Variabili}{10}{section*.44}
+\contentsline {paragraph}{Obiettivo}{11}{section*.45}
+\contentsline {paragraph}{Vincoli}{11}{section*.46}
+\contentsline {subsection}{\numberline {2.7}Locazione di servizi}{11}{subsection.2.7}
+\contentsline {paragraph}{Problema}{11}{section*.47}
+\contentsline {paragraph}{Obiettivo}{11}{section*.48}
+\contentsline {paragraph}{Dati}{11}{section*.49}
+\contentsline {paragraph}{Variabili}{11}{section*.50}
+\contentsline {paragraph}{Obiettivo}{12}{section*.51}
+\contentsline {paragraph}{Vincoli}{12}{section*.52}
+\contentsline {subsection}{\numberline {2.8}Bin packing}{12}{subsection.2.8}
+\contentsline {paragraph}{Problema}{12}{section*.53}
+\contentsline {paragraph}{Obiettivo}{12}{section*.54}
+\contentsline {paragraph}{Dati}{12}{section*.55}
+\contentsline {paragraph}{Variabili}{12}{section*.56}
+\contentsline {paragraph}{Obiettivo}{13}{section*.57}
+\contentsline {paragraph}{Vincoli}{13}{section*.58}
+\contentsline {subsection}{\numberline {2.9}Problema di assegnamento}{13}{subsection.2.9}
+\contentsline {paragraph}{Problema}{13}{section*.59}
+\contentsline {paragraph}{Obiettivo}{13}{section*.60}
+\contentsline {paragraph}{Dati}{13}{section*.61}
+\contentsline {paragraph}{Variabili}{13}{section*.62}
+\contentsline {paragraph}{Obiettivo}{14}{section*.63}
+\contentsline {paragraph}{Vincoli}{14}{section*.64}
+\contentsline {subsection}{\numberline {2.10}Problema di sequenziamento monoprocessore}{14}{subsection.2.10}
+\contentsline {paragraph}{Problema}{14}{section*.65}
+\contentsline {paragraph}{Obiettivo}{14}{section*.66}
+\contentsline {paragraph}{Dati}{14}{section*.67}
+\contentsline {paragraph}{Variabili}{14}{section*.68}
+\contentsline {paragraph}{Obiettivo}{14}{section*.69}
+\contentsline {paragraph}{Vincoli}{15}{section*.70}
+\contentsline {subsection}{\numberline {2.11}Problema di pianificazione della produzione}{15}{subsection.2.11}
+\contentsline {paragraph}{Problema}{15}{section*.71}
+\contentsline {paragraph}{Obiettivo}{15}{section*.72}
+\contentsline {paragraph}{Dati}{15}{section*.73}
+\contentsline {paragraph}{Variabili}{15}{section*.74}
+\contentsline {paragraph}{Obiettivo}{16}{section*.75}
+\contentsline {paragraph}{Vincoli}{16}{section*.76}
+\contentsline {subsubsection}{\numberline {2.11.1}Variante lotto minimo}{16}{subsubsection.2.11.1}
+\contentsline {paragraph}{Variabili}{16}{section*.77}
+\contentsline {paragraph}{Vincoli}{16}{section*.78}
+\contentsline {subsubsection}{\numberline {2.11.2}Variante produzione con costi fissi}{17}{subsubsection.2.11.2}
+\contentsline {paragraph}{Obiettivo}{17}{section*.79}
+\contentsline {subsubsection}{\numberline {2.11.3}Variante multiprodotto}{17}{subsubsection.2.11.3}
+\contentsline {paragraph}{Variabili}{17}{section*.80}
+\contentsline {paragraph}{Obiettivo}{17}{section*.81}
