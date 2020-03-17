@@ -99,3 +99,10 @@
 \contentsline {subsubsection}{\numberline {2.11.3}Variante multiprodotto}{17}{subsubsection.2.11.3}
 \contentsline {paragraph}{Variabili}{17}{section*.80}
 \contentsline {paragraph}{Obiettivo}{17}{section*.81}
+\contentsline {subsection}{\numberline {2.12}Set Covering}{17}{subsection.2.12}
+\contentsline {paragraph}{Problema}{17}{section*.82}
+\contentsline {paragraph}{Obiettivo}{17}{section*.83}
+\contentsline {paragraph}{Dati}{17}{section*.84}
+\contentsline {paragraph}{Variabili}{17}{section*.85}
+\contentsline {paragraph}{Obiettivo}{18}{section*.86}
+\contentsline {paragraph}{Vincoli}{18}{section*.87}

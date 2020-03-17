@@ -127,7 +127,7 @@
 	
 		\subsection{Problema dello zaino} 
 				\problema{
-					Ci sono $n$ oggetti di valore $p_j$ e ingombro $w_j$ per $j=1 \dots n$ ed è data la capacità massima $b$ di un contenitore.
+					Ci sono $n$ oggetti di valore $p_j$ e ingombro $w_j$ per $j=1, \dots, n$ ed è data la capacità massima $b$ di un contenitore.
 			\paragraph{Problema} Quali oggetti inserire nel contenitore senza superare capacità. 
 			\paragraph{Obiettivo}Massimizzare il valore degli oggetti. Si tratta di un problema di \textbf{ottimizzazione} e va formalizzato in modello matematico. Ci sono 4 componenti fondamentali.}
 				{I dati sono informazioni conosciute a priori, in questo caso sono:
@@ -147,12 +147,12 @@
 				{I vincoli sono le limitazioni che abbiamo sui dati. 
 				\begin{itemize}
 					\item $\sum_{j=1}^n w_j x_j \leq b \rightarrow$ la somma degli ingombri degli oggetti presi non può superare la capacità del contenitore 
-					 \item $x_j \in \{0,1\} \quad j=1 \dots n$
+					 \item $x_j \in \{0,1\} \quad j=1, \dots, n$
 				\end{itemize}}
 		
 		\subsection{Problema di trasporto e localizzazione di impianti}
 			\problema
-			{Ci sono $n$ siti candidati ad ospitare unità produttive, ciascuno con capacità massima $a_i$ con $i=1 \dots n$. Vi sono $m$ magazzini, ognuno con una domanda da soddisfare $b_j$ con $j = 1 \dots m$. Indichiamo con $c_{ij}$ il costo di trasporto di una unità di prodotto dal sito $i$ al magazzino $j$. L'attivazione di una unità produttiva nel sito $i$ ha un costo fisso $f_i$. 
+			{Ci sono $n$ siti candidati ad ospitare unità produttive, ciascuno con capacità massima $a_i$ con $i=1, \dots, n$. Vi sono $m$ magazzini, ognuno con una domanda da soddisfare $b_j$ con $j = 1, \dots, m$. Indichiamo con $c_{ij}$ il costo di trasporto di una unità di prodotto dal sito $i$ al magazzino $j$. L'attivazione di una unità produttiva nel sito $i$ ha un costo fisso $f_i$. 
 			\paragraph{Problema} Dove aprire le unità produttive e come trasportare il prodotto dalle unità produttive aperte ai magazini in modo da soddisfare la domanda.
 			\paragraph{Obiettivo} Minimizzare i costi di apertura e trasporto.}
 			{\begin{itemize}
@@ -169,10 +169,10 @@
 				\item $min \sum_{i=1}^n \sum_{j=1}^m c_{ij}x_{ij} + \sum_{i=1}^n f_i y_i \rightarrow$ minimizzare il costo di attivazione di un unità nei vari siti e il costo dei trasporti delle unità.
 			\end{itemize}}
 			{\begin{itemize}
-				\item $\sum_{j=1}^m x_{ij} \leq a_i y_i \quad i = 1 \dots n \rightarrow$ le unità trasportate da un sito i non possono superare la capacità $a_i$ di quel sito $i$.
-				\item $\sum_{i=1}^n x_{ij} \geq b_j \quad j=1 \dots m \rightarrow$ Le unità inviate ad un magazzino $j$ dai vari siti deve soddisfare la domanda di quel magazzino.
-				\item $x_{ij} \geq 0 \quad i=1 \dots n \quad j = 1 \dots m$
-				\item $y_i \in \{0,1\} \quad i=1 \dots n$
+				\item $\sum_{j=1}^m x_{ij} \leq a_i y_i \quad i = 1, \dots, n \rightarrow$ le unità trasportate da un sito i non possono superare la capacità $a_i$ di quel sito $i$.
+				\item $\sum_{i=1}^n x_{ij} \geq b_j \quad j=1, \dots, m \rightarrow$ Le unità inviate ad un magazzino $j$ dai vari siti deve soddisfare la domanda di quel magazzino.
+				\item $x_{ij} \geq 0 \quad i=1, \dots, n \quad j = 1, \dots, m$
+				\item $y_i \in \{0,1\} \quad i=1, \dots, n$
 			\end{itemize}}
 						
 		\subsection{Problema assegnamento}					
@@ -318,7 +318,7 @@
 		\subsection{Locazione di servizi}
 			\problemai
 			{
-				Abbiamo un insieme $N = \{1 \dots n\}$ di potenziali localizzazioni di servizi ed un insieme $I = \{1 \dots m\}$ di clienti. Ogni località $j$ ha una capacità $u_j$ e costo di attivazione $c_j$. Ogni cliente $i$ ha una richiesta $b_i$. Il costo da sostenere per servire il cliente $i$ dalla località $j$ è $h_{ij}$ e ogni cliente è servito da una sola località.
+				Abbiamo un insieme $N = \{1, \dots, n\}$ di potenziali localizzazioni di servizi ed un insieme $I = \{1, \dots, m\}$ di clienti. Ogni località $j$ ha una capacità $u_j$ e costo di attivazione $c_j$. Ogni cliente $i$ ha una richiesta $b_i$. Il costo da sostenere per servire il cliente $i$ dalla località $j$ è $h_{ij}$ e ogni cliente è servito da una sola località.
 				
 				\paragraph{Problema} Determinare la localizzazione di servizi così da soddisfare ogni cliente.
 				\paragraph{Obiettivo} Minimizzare il costo di attivazione e di servizio complessivo.
@@ -403,7 +403,7 @@
 			}{
 				\item $c_j \leq c_k - p_k + M (1-x_{jk}) \quad 1 \leq j < k \leq n \quad M \in R \rightarrow$ se $j$ precede $k$, il suo istante di completamento al più coincide con quello di inizio di $k$.
 				\item $c_k \leq c_j - p_j + M x_{jk} \quad 1 \leq j < k \leq n \quad M \in R \rightarrow$ vincolo ridondante, poichè tiene conto del caso opposto ($k$ precede $j$).
-				\item $0 \leq p_j + r_j \leq c_j \leq d_j \quad \forall j = 1 \dots n \rightarrow$ l'istante minimo di fine processo $j$ $(p_j+r_j)$ al più coincide con il suo istante di completamento effettivo, ed al più coincide con l'istante massimo di completamento.
+				\item $0 \leq p_j + r_j \leq c_j \leq d_j \quad \forall j = 1, \dots, n \rightarrow$ l'istante minimo di fine processo $j$ $(p_j+r_j)$ al più coincide con il suo istante di completamento effettivo, ed al più coincide con l'istante massimo di completamento.
 				\item $x_{jk} \in \{0,1\} \quad 1 \leq j < k \leq n$
 			}
 			
@@ -425,8 +425,8 @@
 			}{
 				\item $min \sum _{t=1}^n c_t x_t + \sum_{t=1}^n i_t m_t \rightarrow$ minimizzare il costo di produzione e di magazzino.
 			}{
-				\item $m_{t-1} + x_t = d_t + m_t \quad t = 1 \dots n \rightarrow$ le unità immagazzinate dal periodo precedente insieme alle unità prodotte nel periodo $t$ attuale devono coincidere con la domanda nel periodo $t$ sommati ai prodotti rimanenti immagazzinati.
-				\item $x_t \leq c \quad t = 1 \dots n \rightarrow$ le unità prodotte non possono superare la capacità produttiva.
+				\item $m_{t-1} + x_t = d_t + m_t \quad t = 1, \dots, n \rightarrow$ le unità immagazzinate dal periodo precedente insieme alle unità prodotte nel periodo $t$ attuale devono coincidere con la domanda nel periodo $t$ sommati ai prodotti rimanenti immagazzinati.
+				\item $x_t \leq c \quad t = 1, \dots, n \rightarrow$ le unità prodotte non possono superare la capacità produttiva.
 			}
 			Questo problema è rappresentabile tramite un \textbf{modello di flusso}:
 			\img{Modello di flusso}{0.7}{img1.png}
@@ -438,8 +438,8 @@
 				
 				\paragraph{Vincoli} 
 					\begin{itemize}
-						\item $x_t \geq L y_t \quad t=1 \dots n$
-						\item $x_t \leq c y_t \quad t=1 \dots n$
+						\item $x_t \geq L y_t \quad t=1, \dots, n$
+						\item $x_t \leq c y_t \quad t=1, \dots, n$
 					\end{itemize}
 					
 			\subsubsection{Variante produzione con costi fissi}
@@ -458,4 +458,46 @@
 					
 				\paragraph{Obiettivo}
 					$min \sum_j(\sum_{t=1}^n c_t^j x_t^j + \sum_{t=1}^n i_t^j m_t^j + \sum_{t=1}^n ky_t^j)$
+		
+		\subsection{Set Covering}
+			\problemai{
+				È dato un insieme $M=\{1,2, \dots, m\}$ ed una famiglia di $n$ suoi sottoinsiemi $S_j \subseteq M$. Ogni sottoinsieme ha un costo $c_j$
+				
+				\paragraph{Problema} Trovare un insieme $T \subseteq N = \{1, \dots, n\}$ tale che l'unione degli $S_j$, con $j \in T$ sia uguale a $M$.
+				
+				\paragraph{Obiettivo} Minimizzare i costi dei sottoinsiemi scelti.
+			}{
+				\item $M \rightarrow$ insieme di partenza.
+				\item $S_j \rightarrow$ sottoinsieme di $M$.
+				\item $c_j \rightarrow$ costo del sottoinsieme \textit{j-esimo}.
+			}{
+				\item \casi{y_j}{1 se scelgo il sottoinsieme \textit{j-esimo} $S_j$.}{0 altrimenti.}
+			}{
+				\item $min \sum_{j \in N} c_j y_j \rightarrow$ minimizzare il costo dei  sottoinsiemi scelti per coprire $M$.
+			}{
+				\item $\bigcup_{j \in T} S_j = M \rightarrow$ l'unione dei sottoinsiemi scelti coincide con $M$.\\
+				Tuttavia $S_j$ è rappresentabile come un vettore di $m$ elementi:
+				\item $S_j = \begin{pmatrix}
+					a_{1,j} \\
+					a_{2,j} \\
+					\dots \\
+					a_{m,j}
+				\end{pmatrix} \rightarrow$ \casi{a_{ij}}{1 se l'elemento \textit{i-esimo} appartiene al sottoinsieme $S_j$}{0 altrimenti.}
+				\\Inoltre, il sottoinsieme $S_j$ viene viene scelto se la rispettiva variabile $y_j$ è uguale a 1, quindi utilizziamo un vettore di $n$ elementi, costituito da $y_j$.\\
+				\underline{\textit{Y}}$ = \begin{pmatrix}
+					y_1 \\
+					y_2 \\
+					\dots \\
+					y_n
+				\end{pmatrix}$ 
+				\\\\Ora rappresentiamo anche $a_i,j$ sotto forma matriciale:\\\\
+				$A = \begin{pmatrix}
+					a_{1,1} & a_{1,2} & \dots & a_{1,n} \\
+					\dots & \dots & \dots & \dots \\
+					a_{m,1} & a_{m,2} & \dots & a_{m,n}
+				\end{pmatrix}$\\\\
+				Se effettuiamo il prodotto matriciale tra $A$ e \underline{\textit{Y}} otteniamo un sistema, in cui ogni riga rappresenta quante volte il valore $i \in M$ compare tra tutti i sottoinsiemi scelti.\\\\
+				$ A \underline{Y} \geq 1 \rightarrow \begin{cases} a_{1,1} y_1 + a_{1,2}y_2 + \dots + a_{1,n} y_n \geq 1 \\ \dots \\ a_{m,1} y_1 + a_{m,2}y_2 + \dots + a_{m,n} y_n \geq 1 \end{cases}$
+				\item $y_j \in \{0,1\} \quad \forall j \rightarrow \underline{Y} \in \{0,1\}^n$ 
+			}
 \end{document}
