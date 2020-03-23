@@ -1,7 +1,7 @@
 \BOOKMARK [1][-]{section.1}{Introduzione}{}% 1
 \BOOKMARK [2][-]{subsection.1.1}{Tassonomia modelli}{section.1}% 2
 \BOOKMARK [2][-]{subsection.1.2}{Programmazione matematica}{section.1}% 3
-\BOOKMARK [1][-]{section.2}{Esempi di problemi}{}% 4
+\BOOKMARK [1][-]{section.2}{Modellazione di problemi}{}% 4
 \BOOKMARK [2][-]{subsection.2.1}{Problema dello zaino}{section.2}% 5
 \BOOKMARK [2][-]{subsection.2.2}{Problema di trasporto e localizzazione di impianti}{section.2}% 6
 \BOOKMARK [2][-]{subsection.2.3}{Problema assegnamento}{section.2}% 7
@@ -19,3 +19,6 @@
 \BOOKMARK [3][-]{subsubsection.2.11.2}{Variante produzione con costi fissi}{subsection.2.11}% 19
 \BOOKMARK [3][-]{subsubsection.2.11.3}{Variante multiprodotto}{subsection.2.11}% 20
 \BOOKMARK [2][-]{subsection.2.12}{Set Covering}{section.2}% 21
+\BOOKMARK [2][-]{subsection.2.13}{Modellare vincoli logici utilizzando variabili binarie}{section.2}% 22
+\BOOKMARK [1][-]{section.3}{Parte formale della ricerca operativa}{}% 23
+\BOOKMARK [2][-]{subsection.3.1}{Tecnica di soluzione lineare}{section.3}% 24

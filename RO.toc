@@ -4,7 +4,7 @@
 \contentsline {paragraph}{Esempio di problemi decisionali}{3}{section*.2}
 \contentsline {paragraph}{NB}{3}{section*.3}
 \contentsline {subsection}{\numberline {1.2}Programmazione matematica}{3}{subsection.1.2}
-\contentsline {section}{\numberline {2}Esempi di problemi}{4}{section.2}
+\contentsline {section}{\numberline {2}Modellazione di problemi}{4}{section.2}
 \contentsline {subsection}{\numberline {2.1}Problema dello zaino}{4}{subsection.2.1}
 \contentsline {paragraph}{Problema}{4}{section*.4}
 \contentsline {paragraph}{Obiettivo}{4}{section*.5}
@@ -106,3 +106,8 @@
 \contentsline {paragraph}{Variabili}{17}{section*.85}
 \contentsline {paragraph}{Obiettivo}{18}{section*.86}
 \contentsline {paragraph}{Vincoli}{18}{section*.87}
+\contentsline {subsection}{\numberline {2.13}Modellare vincoli logici utilizzando variabili binarie}{19}{subsection.2.13}
+\contentsline {section}{\numberline {3}Parte formale della ricerca operativa}{20}{section.3}
+\contentsline {subsection}{\numberline {3.1}Tecnica di soluzione lineare}{20}{subsection.3.1}
+\contentsline {paragraph}{Obiettivo}{20}{section*.88}
+\contentsline {paragraph}{Vincoli}{20}{section*.89}

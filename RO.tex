@@ -2,13 +2,14 @@
 \usepackage[top=2cm,bottom=4cm,left=3cm,right=3cm,asymmetric]{geometry}% aggiungere ^twoside^
 \usepackage{color}   %May be necessary if you want to color links
 \usepackage{hyperref}
+\usepackage{pgfplots}
 \hypersetup{
     colorlinks=true, %set true if you want colored links
     linktoc=all,     %set to all if you want both sections and subsections linked
     linkcolor=black,  %choose some color if you want links to stand out
 }
 \usepackage[utf8x]{inputenc}
-\usepackage[table]{xcolor}
+%\usepackage[table]{xcolor}
 \usepackage[english]{babel}
 \usepackage{amsmath, amsthm, amssymb, amsfonts}
 \usepackage[breakable]{tcolorbox}
@@ -74,7 +75,7 @@
 
 \title{Ricerca operativa}
 \author{Mario Petruccelli \cr Università degli studi di Milano}
-\date{A.A. 2018/2019}
+\date{A.A. 2019/2020}
 
 \addto\captionsenglish{% Replace "english" with the language you use
   \renewcommand{\contentsname}%
@@ -123,7 +124,7 @@
 			\item Programmazione booleana.
 		\end{itemize}
 	
-	\section{Esempi di problemi}
+	\section{Modellazione di problemi}
 	
 		\subsection{Problema dello zaino} 
 				\problema{
@@ -500,4 +501,77 @@
 				$ A \underline{Y} \geq 1 \rightarrow \begin{cases} a_{1,1} y_1 + a_{1,2}y_2 + \dots + a_{1,n} y_n \geq 1 \\ \dots \\ a_{m,1} y_1 + a_{m,2}y_2 + \dots + a_{m,n} y_n \geq 1 \end{cases}$
 				\item $y_j \in \{0,1\} \quad \forall j \rightarrow \underline{Y} \in \{0,1\}^n$ 
 			}
+			
+		\newpage
+		\subsection{Modellare vincoli logici utilizzando variabili binarie}
+			In primo luogo associamo una variabile binaria a ciascuna variabile logica. Ad esempio alla variabile logica $X=$"attivare l’impianto di produzione" associamo la variabile binaria $x$ nel seguente modo:
+			\casi{x}{1 "attivazione dell'impianto di produzione"}{0 "non attivazione dell'impianto di produzione"}
+			\begin{tabular}{ll}
+				Rappresentiamo & con\\
+				$\lnot X$ & $(1-x)$\\	
+				$X \lor Y$ & ($x+y$)\\
+				$X \rightarrow Y$ & $x \leq y$\\
+				$X_1 \lor X_2 \lor \dots \lor X_n \rightarrow Y$ & $\sum_1^n x_i \leq ny$\\
+				$X \rightarrow Y_1 \lor Y_2 \lor \dots \lor Y_n$ & $x \leq \sum_1^n y_i$\\
+				$X \rightarrow Y_1 \land Y_2 \land \dots \land Y_n$ & $nx \leq \sum_1^n y_i$
+			\end{tabular}\\\\\\
+			\begin{tabular}{lll}
+				Esempi & & \\
+				$X \rightarrow (\lnot Y \lor \lnot Z)$ & diviene & $x \leq (1-y)+(1-z) \quad $ cioè $\quad x+y+z \leq 2$\\
+				$(X \lor Y) \rightarrow (\lnot Z)$ & diviene & $x+y \leq 2(1-z)$\\
+				$(X \lor Y) \land (\lnot Z \lor Y)$ & diviene & $x+y \geq 1, (1-z)+y \geq 1$\\
+				Almeno due fra $X,Y,Z$ & diviene & $x+y+z \geq 2$\\
+				Al più $k$ fra $X_1, X_2, \dots, X_n$ & diviene & $\sum_1^n x_i \leq k$
+			\end{tabular}
+			\newpage
+			
+	\section{Parte formale della ricerca operativa}
+		\subsection{Tecnica di soluzione lineare}
+			Prendiamo un esempio che abbiamo già visto, il problema delle vernici.
+			\paragraph{Obiettivo} 
+				\begin{itemize} 
+					\item $\max 3x_E + 2x_I \leq 6$ 
+				\end{itemize}
+				
+			\paragraph{Vincoli}
+				\begin{itemize}
+					\item $x_E + 2x_I \leq 6$
+					\item $2x_E + x_I \leq 8$
+					\item $x_I - x_E \leq 1$
+					\item $x_I \leq 2$
+					\item $x_E, x_I \geq 0 $
+				\end{itemize} 
+			\begin{enumerate}
+				\item Disegnamo lo \textbf{spazio delle soluzioni} di $x_E$ e $x_I$ che soddisfano tutti i vincoli.
+				\begin{enumerate}
+					\item Consideriamo nel primo vincolo solamente l'uguaglianza $x_E + 2x_I = b$
+					\item Inseriamo i punti sul piano in base alle soluzioni del vincolo per una delle 2 variabili fissate. 
+					\begin{enumerate}
+						\item $x_E = 0 \rightarrow$ $x_I = 3$	
+						\item $x_I = 0 \rightarrow$ $x_E = 6$			
+					\end{enumerate}	
+					\item Traccia la retta tra i 2 punti.
+					\item Ripeti per ogni vincolo.
+				\end{enumerate}
+				\img{}{0.2}{img1.jpg}
+				
+				\item Ora cerchiamo di evidenzialre la \textbf{regione ammissibile}
+					\begin{enumerate}
+						\item Rappresentiamo i vettori \textbf{gradienti} per ogni vincolo, ciascuno rappresentato dai coefficienti del vincolo. $x_E + 2x_I \leq 6 \rightarrow \binom{1}{2}$
+						\item Nel caso di vincoli con il $\geq$ il \textbf{gradiente} indica la parte dei punti soddisfatta dal vincolo, altrimenti l'opposto.
+						\item L'intersezione tra tutti gli spazi da la regione ammissibile
+						\img{}{0.2}{img2.jpg}
+					\end{enumerate}
+					
+				\item Ora troviamo il punto che da la \textbf{soluzione ottima}.
+				\begin{enumerate}
+					\item Si genera un punto generico nella regione ammissibile.
+					\item Sul punto si disegna il gradiente della funzione obiettivo.
+					\item Poi la retta ortogonale al gradiente (\textbf{retta di Isocasto}) in cui tutti i punti hanno lo stesso costo.
+					\item Il gradiente indica la direzione e il verso da seguire per aumentare il valore della funzione, quindi, dovendo massimizzare la funzione, spostiamo la retta in quella direzione fino a che la retta rimane nella regione ammissibile.
+					\item Per verificarlo, dobbiamo essere sicuri che il \textbf{gradiente} della funzione obiettivo sia nel cono tra il gradiente del primo vincolo incontrato e del secondo.
+					\img{}{0.2}{img3.jpg}
+				\end{enumerate}
+			\end{enumerate}
+			
 \end{document}
