@@ -2,7 +2,6 @@
 \usepackage[top=2cm,bottom=4cm,left=3cm,right=3cm,asymmetric]{geometry}% aggiungere ^twoside^
 \usepackage{color}   %May be necessary if you want to color links
 \usepackage{hyperref}
-\usepackage{pgfplots}
 \hypersetup{
     colorlinks=true, %set true if you want colored links
     linktoc=all,     %set to all if you want both sections and subsections linked
@@ -570,8 +569,31 @@
 					\item Poi la retta ortogonale al gradiente (\textbf{retta di Isocasto}) in cui tutti i punti hanno lo stesso costo.
 					\item Il gradiente indica la direzione e il verso da seguire per aumentare il valore della funzione, quindi, dovendo massimizzare la funzione, spostiamo la retta in quella direzione fino a che la retta rimane nella regione ammissibile.
 					\item Per verificarlo, dobbiamo essere sicuri che il \textbf{gradiente} della funzione obiettivo sia nel cono tra il gradiente del primo vincolo incontrato e del secondo.
-					\img{}{0.2}{img3.jpg}
+					\img{}{0.275}{img3.jpg}
 				\end{enumerate}
 			\end{enumerate}
+			
+		\subsection{Tecnica di programmazione matematica}
+			Formalizziamolo ora come \textbf{problema di programmazione matematica}:\\
+			Problema ($f, X$) con 
+			\begin{itemize}
+				\item $f: R^n \rightarrow R$ funzione obiettivo.
+				\item $X \subseteq R^n$ regione ammissibile
+			\end{itemize}
+			Quindi un problema per noi diventa $min f(\underline{x}) \quad \underline{x} \in X$.\\
+			Con $\underline{x}$ definita: $\underline{x} \in X \iff x$ $soddisfa
+			\begin{cases} 
+				g_1(\underline{x}) \leq 0\\
+				\dots \\
+				g_m(\underline{x}) \leq 0 \\
+				h_1(\underline{x}) = 0 \\
+				\dots \\
+				h_k(\underline{x}) ) 0
+			\end{cases}$
+			
+			\subsubsection{Convessità}
+				Dati $\underline{x}$ e $\underline{y} \in R^n$ e lo scalare $\lambda \in [0,1]$, un vettore $\underline{z} \in R^n$ è una combinazione convessa di $\underline{x}$ e $\underline{y}$ se: $$\underline{z} = \lambda \underline{x} + (1- \lambda) \underline{y}$$
+				Un insieme $S \subseteq R^n$ è convesso se ogni combinazione convessa di una qualunque coppia $\underline{x}, \underline{y} \in S$ appartiene ad $S$ stesso. L'intersezione di un qualunque numero di insiemi convessi è un insieme convesso.
+			
 			
 \end{document}
