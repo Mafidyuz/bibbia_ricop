@@ -12,6 +12,8 @@
 \usepackage[english]{babel}
 \usepackage{amsmath, amsthm, amssymb, amsfonts}
 \usepackage[breakable]{tcolorbox}
+\usepackage{floatrow}
+\usepackage{caption}
 \newtcolorbox{dati}[1][]{colback=green!30!white, bottomtitle=1.5mm,breakable,#1}
 \newtcolorbox{variabili}[1][]{colback=red!30!white, bottomtitle=1.5mm,breakable,#1}
 \newtcolorbox{vincoli}[1][]{colback=orange!30!white, bottomtitle=1.5mm,breakable,#1}
@@ -22,9 +24,34 @@
 \newcommand{\casi}[3]{
 	$#1 = \begin{cases} \text{#2} \\ \text{#3} \end{cases}$
 }
+
+\newcommand{\vp}[0]{
+	\underline{P}
+}
+\newcommand{\vx}[0]{
+	\underline{x}
+}
+\newcommand{\va}[0]{
+	\underline{a}
+}
+\newcommand{\vy}[0]{
+	\underline{y}
+}
+\newcommand{\vz}[0]{
+	\underline{z}
+}
+\newcommand{\fx}[0]{
+	f(\underline{x})
+}
+\newcommand{\fy}[0]{
+	f(\underline{y})
+}
+\newcommand{\fz}[0]{
+	f(\underline{z})
+}
 \newcommand{\img}[3] {
 	\begin{figure}[h]
-		\caption{#1}
+		\caption*{#1}
 		\centering
 		\includegraphics[scale=#2]{img/#3}\\
 	\end{figure}
@@ -569,31 +596,139 @@
 					\item Poi la retta ortogonale al gradiente (\textbf{retta di Isocasto}) in cui tutti i punti hanno lo stesso costo.
 					\item Il gradiente indica la direzione e il verso da seguire per aumentare il valore della funzione, quindi, dovendo massimizzare la funzione, spostiamo la retta in quella direzione fino a che la retta rimane nella regione ammissibile.
 					\item Per verificarlo, dobbiamo essere sicuri che il \textbf{gradiente} della funzione obiettivo sia nel cono tra il gradiente del primo vincolo incontrato e del secondo.
-					\img{}{0.275}{img3.jpg}
+					\img{}{0.25}{img3.jpg}
 				\end{enumerate}
 			\end{enumerate}
 			
 		\subsection{Tecnica di programmazione matematica}
-			Formalizziamolo ora come \textbf{problema di programmazione matematica}:\\
+			Formalizziamo ora un problema come \textbf{problema di programmazione matematica}:\\
 			Problema ($f, X$) con 
 			\begin{itemize}
 				\item $f: R^n \rightarrow R$ funzione obiettivo.
 				\item $X \subseteq R^n$ regione ammissibile
 			\end{itemize}
 			Quindi un problema per noi diventa $min f(\underline{x}) \quad \underline{x} \in X$.\\
-			Con $\underline{x}$ definita: $\underline{x} \in X \iff x$ $soddisfa
+			Con $\underline{x}$ definita: $\underline{x} \in X \iff \vx$ $soddisfa
 			\begin{cases} 
 				g_1(\underline{x}) \leq 0\\
 				\dots \\
 				g_m(\underline{x}) \leq 0 \\
 				h_1(\underline{x}) = 0 \\
 				\dots \\
-				h_k(\underline{x}) ) 0
+				h_k(\underline{x}) = 0
 			\end{cases}$
 			
 			\subsubsection{Convessità}
 				Dati $\underline{x}$ e $\underline{y} \in R^n$ e lo scalare $\lambda \in [0,1]$, un vettore $\underline{z} \in R^n$ è una combinazione convessa di $\underline{x}$ e $\underline{y}$ se: $$\underline{z} = \lambda \underline{x} + (1- \lambda) \underline{y}$$
-				Un insieme $S \subseteq R^n$ è convesso se ogni combinazione convessa di una qualunque coppia $\underline{x}, \underline{y} \in S$ appartiene ad $S$ stesso. L'intersezione di un qualunque numero di insiemi convessi è un insieme convesso.
+				
+				\paragraph{Insieme convesso} Un insieme $S \subseteq R^n$ è convesso se ogni combinazione convessa di una qualunque coppia $\underline{x}, \underline{y} \in S$ appartiene ad $S$ stesso. L'intersezione di un qualunque numero di insiemi convessi è un insieme convesso.
 			
+				\paragraph{Funzione convessa} Una funzione $f: X \rightarrow R$ definita su di un insieme convesso $X \subseteq R^n$ si dice \textbf{convessa} se $\forall \underline{x}, \underline{y} \in X$ e $\forall \lambda \in [0,1]$ si ha che $$f(\underline{z}) \leq \lambda f( \underline{x} ) + (1-\lambda)f(\underline{y})\text{ con }\underline{z} = \lambda \underline{x} +(1-\lambda)\underline{y}$$
+				\img{}{0.335}{img5.png}
+				
+				\paragraph{Funzione concava} La funzione $g$ è concava (sull'insieme convesso $X \subseteq R^n$) se $-g$ è convessa in $X$: $$g(\underline{z}) = g(\lambda \underline{x} + (1-\lambda) \underline{y}) \geq \lambda g(\underline{x}) + (1 - \lambda) g(\underline{y}) \quad \forall \underline{x}, \underline{y} \in X$$
+				
+				\paragraph{Minimo locale} $\underline{x} \in X$ è un minimo locale se esiste un intorno $N(\underline{x}) \subseteq X$ tale che $f(\underline{z}) \geq f(\underline{x})$ per ogni $\underline{z} \in N(\underline{x})$. $$N(\underline{x}) = \{\underline{z} : \underline{z} \in X \text{ e } ||\underline{x} - \underline{z} || \leq \epsilon \}$$	
+				
+				\paragraph{Teorema} Dato un problema di ottimizzazione convessa ($X,f$) ogni \textbf{minimo locale} è anche \textbf{minimo globale.}
+					\img{}{0.3}{img6.png}
+					
+				\paragraph{Dimostrazione} La tesi da dimostrare è: $\forall \underline{y} \in X$ risulta $f(\underline{y}) \geq f(\underline{x})$.
+					\begin{itemize}
+						\item Il teorema vale se $\underline{y} \equiv \underline{z} \in N(\underline{x})$.
+						\item Metto in relazione $\underline{x}, \underline{z}, \underline{y}$ e i corrispondenti valori della f.o.:
+					\end{itemize}
+					
+					\begin{enumerate}
+						\item Per trovare un controesempio, basta prendere un vettore $\underline{y}$ non appartenente all'interno di $N(\underline{x})$, che sia minore di $\underline{x}$ \textit{(minimo locale)}. $$\underline{y} \notin N(x) \quad f(\underline{x}) \leq f(\underline{y})$$
+						\item Prendiamo qundi uno $\underline{z}$ che sia combinazione convessa di $\underline{x}$ e $\underline{y}$ e che appartenga all'interno. $$f(\underline{z}) = f(\lambda \underline{x} + (1- \lambda) \underline{y}) \leq \lambda f(\underline{x}) + (1-\lambda) f(\underline{y})$$
+						\item $f(\underline{x}) \leq f(\underline{z})$ perchè $\underline{x}$ è minimo locale.
+						\item
+							\begin{itemize}
+								\item $\fx \leq \lambda \fx + (1-\lambda) \fy$
+								\item $\fx - \lambda \fx \leq (1-\lambda)$
+								\item $(1-\lambda) \fx \leq (1-\lambda) \fy$ ma, essendo $\vx$ e $\vy$ diversi, $\lambda \ne 1$ e $\lambda \ne 0$, quindi:
+								\item $\fx \leq \fy \quad \Box$
+							\end{itemize}
+					\end{enumerate}
+				Noi ci interesseremo al mondo della \textbf{programmazione lineare}. $(f,X)$ è detto problema di programmazione lineare se e solo se la funzione obiettivo $f$ e tutte le funzioni che definiscono la regione ammissibile $X$ ($g_1(\vx), \dots, g_m(\vx), h_1(\vx), \dots, h_k(\vx)$ sono \textbf{lineari}, ossia sono concave e convesse contemporaneamente. 				Di conseguenza $X$ è convesso perchè intersezioni di insiemi (disuguaglianze) convessi.\\
+				Perchè $X$ è definito da un insieme di disuguaglianze, il cui sistema genera una intersezione convessa, dimostriamo che un insieme definito in questo modo è a sua volta convesso.
+				\paragraph{Dimostrazione}
+					$X = \{ \vx \in R^n : \fx \leq 0 \} \quad$ $f$ convessa
+					\begin{enumerate}
+						\item Consideriamo 2 punti $\vx$ e $\vy$ tali che: $\fx \leq 0$ e $\fy \leq 0$
+						\item Preso $\vz$ come \textbf{combinazione convessa} di $\vx$ e $\vy$ $(\vz = \lambda \vx + (1-\lambda)\vy)$ vale che $\fz \leq 0$: $$\fz \leq \underbrace{\underbrace{\lambda}_{\geq 0} \underbrace{\fx}_{\leq 0}}_{\leq 0} + \underbrace{\underbrace{(1-\lambda)}_{\geq 0} \underbrace{\fy}_{\leq 0}}_{\leq 0} \rightarrow \text{poichè $f$ è funzione convessa}$$ 
+					\end{enumerate}
+					Quindi ogni combinazione convessa di 2 punti che soddisfano la disuguaglianza, soddisfa a sua volta la disuguaglianza $\rightarrow$ $X$ insieme convesso. $\quad \Box$\\\\
+				Ovviamente la programmazione lineare è solo un caso specifico di quella convessa.
+		\subsection{Geometria della programmazione lineare}
+			\paragraph{Iperpiano} \textit{(di supporto di un vincolo)} $\{\vx \in R^n: \underline{\alpha}^T \vx = \alpha_0 \}$
+			\paragraph{Semispazio} $\{ \vx \in R^n: \va^T \vx \leq \alpha_0 \}$\\\\
+			Con $\va$ vettore dei coefficienti, $\vx$ vettore delle variabili e $\alpha_0$ valore reale $\rightarrow$ $\va^T \vx$ prodotto scalare tra $\va$ e $\vx$ ($\va^T$ trasposta di $\va$).\\\\
+			Iperpiano e semispazio \textbf{insiemi convessi} $\rightarrow$ la loro intersezione genera un insieme convesso.
+			\paragraph{Poliedro} intersezione di un numero finito di \textbf{iperpiani} e \textbf{semispazi}.
+			\paragraph{Politopo} poliedro $P$ limitato, ossia: $\exists M > 0: || \vx || \leq M \quad \forall	\vx \in P$
+			\paragraph{Vertice} punto $x$ di un poliedro $P$ che non può essere espresso come \textbf{combinazione convessa \underline{stretta}} $(\lambda \ne 0,1)$ di altri 2 punti del poliedro $$\nexists \vy, \vz \in P, \vy \ne \vz, \lambda \in (0,1): \vx = \lambda \vy + (1-\lambda) \vz$$
+			Ogni politopo ha un \textbf{numero finito di vertici}.
 			
+			\subsubsection{Forma matriciale del modello}
+				\paragraph{Obiettivo} $max$ $3x_1 + 2x_2$
+				\paragraph{Vincoli}
+					\begin{itemize}
+						\item $8x_1 + 4x_2 \leq 64$
+						\item $4x_1 + 6x_2 \leq 54$
+						\item $x_1 + x_2 \leq 10$
+						\item $x_{1,2} \geq 0$
+					\end{itemize}
+				\paragraph{Vettore dei coefficienti dei costi} $\underline{c}^T = (3,2) $ vettore che contiene i coeeficienti della funzione obiettivo
+				\paragraph{Vettore dei termini noti} 
+					$ \underline{b} = \left (\begin{array}{l}
+						64\\
+						54\\
+						10
+					\end{array}\right)$ 
+					vettore che contiene i termini noti posti dopo le disuguaglianze nei vincoli.
+				\paragraph{Matrice dei coefficienti tecnologici} $ A = \left (\begin{array}{ll}
+						8 & 4\\
+						4 & 6\\
+						1 & 1
+					\end{array}\right)$ 
+					matrice che contiene i coefficienti moltiplicativi delle variabili nei vincoli.
+					
+					Con $A_i$ indichiamo la colonna \textit{i-esima} di $A$, con $\va^T_i$ indichiamo la riga \textit{i-esima} di $A$.
+					
+				\paragraph{Vettore delle variabili} $ \vx = \left (\begin{array}{l}
+						x_1\\
+						x_2
+					\end{array}\right)$ 
+					vettore contenente tutte le variabili del modello.\\\\
+				Quindi il problema è riformulabile in questi termini:
+				\paragraph{Funzione obiettivo} $max$ $\underline{c}^T \vx$ 
+				\paragraph{Vincoli} 
+				\begin{itemize}
+					\item $A \vx \leq \underline{b}$
+					\item $\vx \geq 0$		
+				\end{itemize}
+				$\underline{P} = \{ \vx \in R^n | A |vx \leq b \land \vx \geq 0 \} \rightarrow$ insieme dei punti che soddisfano i vincoli, ossia la regione ammissibile (politopo o poliedro).\\\\
+				Inoltre, in funzione della regione ammissibile $\underline{P}$, distinguiamo 3 tipi di problemi: 
+				\begin{itemize}
+					\item \textbf{Soluzione ottima finita} la cui regione ammissibile è un \textbf{politopo} (ossia una regione di spazio limitata), in cui quindi il numero di souzioni ottime è finito $(\underline{P} \ne \varnothing)$
+					\item \textbf{Problema illimitato} la cui regione ammissibile è un \textbf{poliedro} (ossia una regione di spazio illimitata)
+					\item \textbf{Problema inammissibile} la cui regione ammissibile è vuota, non ammettendo quindi soluzioni $(\underline{P} = \varnothing)$.
+				\end{itemize}
+				Nel primo caso, si possono verificare 3 diverse situazioni:
+				\begin{itemize}
+					\item \textbf{Soluzione unica} $\rightarrow$ esiste un unico punto \textit{(vertice)} che è soluzione ottima.
+					\item \textbf{Ottimo multiplo} $\rightarrow$ l'insieme delle soluzioni ottime non è finito, poichè corrisponde una faccia del politopo. 
+					\item \textbf{Soluzione degenere} $\rightarrow$ la soluzione  del problema è un vertice definito da più di 2 iperpiani (per definire un vertice è necessaria l'intersezione di soli 2 iperpiani) quindi quel punto nasconde più vertici (a causa dell'intersezione di tutte le coppie di iperpiani possibili).
+				\end{itemize}
+				
+			\subsubsection{Teorema di Minkowski-Weil}
+				Ogni punto di un politopo si può ottenere come combinazione convessa dei suoi vertici. 
+				\paragraph{Teorema} Se $\vp = \{ \vx \in R^n | A \vx \leq b \land \vx \geq 0 \}$ è un politopo allora esiste almeno un vertice di $\vp$ ottimo per il problema $min$ $\{ c^T \vx | \vx \in \vp \}$
+				
+				\paragraph{Dimostrazione}
+				
+				
 \end{document}
+

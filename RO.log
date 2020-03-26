@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2020.3.23)  23 MAR 2020 16:27
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.6.6)  26 MAR 2020 15:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -577,23 +577,79 @@ Library (tcolorbox): 'tcbbreakable.code.tex' version '4.12'
 \tcb@testbox=\box43
 \tcb@totalupperbox=\box44
 \tcb@totallowerbox=\box45
-)) (./RO.aux)
+)) (/usr/share/texlive/texmf-dist/tex/latex/floatrow/floatrow.sty
+Package: floatrow 2008/08/02 v0.3b floatrow: float package extension
+
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2016/05/22 v1.7-166 caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 67.
+\captionmargin=\dimen164
+\captionmargin@=\dimen165
+\captionwidth=\dimen166
+\caption@tempdima=\dimen167
+\caption@indent=\dimen168
+\caption@parindent=\dimen169
+\caption@hangindent=\dimen170
+)
+\c@float@type=\count129
+\float@exts=\toks44
+\float@box=\box46
+\@floatcapt=\box47
+Package floatrow Info: Modified float package code loaded on input line 455.
+Package floatrow Info: Modified rotfloat package code loaded on input line 473.
+
+\FR@everyfloat=\toks45
+\flrow@foot=\insert199
+\FB@wd=\dimen171
+\FBo@wd=\dimen172
+\FBc@wd=\dimen173
+\FBo@ht=\skip50
+\FBc@ht=\skip51
+\FBf@ht=\skip52
+\FBo@max=\skip53
+\FBc@max=\skip54
+\FBf@max=\skip55
+\c@FBl@b=\count130
+\floatbox@depth=\count131
+\c@FRobj=\count132
+\c@FRsobj=\count133
+\Xhsize=\skip56
+\sXhsize=\skip57
+\Zhsize=\skip58
+\sZhsize=\skip59
+\flrow@rowbox=\box48
+\FR@Zunitlength=\dimen174
+\c@FBcnt=\count134
+\FPOScnt=\count135
+\LTleft=\skip60
+\LTright=\skip61
+\LTleft=\skip62
+\LTright=\skip63
+\flrow@types=\toks46
+)
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
+\c@ContinuedFloat=\count136
+Package caption Info: float package is loaded.
+Package caption Info: floatrow package is loaded.
+Package caption Info: hyperref package is loaded.
+) (./RO.aux)
 \openout1 = `RO.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 84.
-LaTeX Font Info:    ... okay on input line 84.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 84.
-LaTeX Font Info:    ... okay on input line 84.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 84.
-LaTeX Font Info:    ... okay on input line 84.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 84.
-LaTeX Font Info:    ... okay on input line 84.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 84.
-LaTeX Font Info:    ... okay on input line 84.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 84.
-LaTeX Font Info:    ... okay on input line 84.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 84.
-LaTeX Font Info:    ... okay on input line 84.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 111.
+LaTeX Font Info:    ... okay on input line 111.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 111.
+LaTeX Font Info:    ... okay on input line 111.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 111.
+LaTeX Font Info:    ... okay on input line 111.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 111.
+LaTeX Font Info:    ... okay on input line 111.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 111.
+LaTeX Font Info:    ... okay on input line 111.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 111.
+LaTeX Font Info:    ... okay on input line 111.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 111.
+LaTeX Font Info:    ... okay on input line 111.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -631,17 +687,17 @@ LaTeX Font Info:    ... okay on input line 84.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count129
-\scratchdimen=\dimen164
-\scratchbox=\box46
-\nofMPsegments=\count130
-\nofMParguments=\count131
-\everyMPshowfont=\toks44
-\MPscratchCnt=\count132
-\MPscratchDim=\dimen165
-\MPnumerator=\count133
-\makeMPintoPDFobject=\count134
-\everyMPtoPDFconversion=\toks45
+\scratchcounter=\count137
+\scratchdimen=\dimen175
+\scratchbox=\box49
+\nofMPsegments=\count138
+\nofMParguments=\count139
+\everyMPshowfont=\toks47
+\MPscratchCnt=\count140
+\MPscratchDim=\dimen176
+\MPnumerator=\count141
+\makeMPintoPDFobject=\count142
+\everyMPtoPDFconversion=\toks48
 ) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
 
@@ -659,8 +715,8 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-\AtBeginShipoutBox=\box47
-Package hyperref Info: Link coloring ON on input line 84.
+\AtBeginShipoutBox=\box50
+Package hyperref Info: Link coloring ON on input line 111.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
@@ -668,11 +724,11 @@ Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count135
+\c@section@level=\count143
 )
-LaTeX Info: Redefining \ref on input line 84.
-LaTeX Info: Redefining \pageref on input line 84.
-LaTeX Info: Redefining \nameref on input line 84.
+LaTeX Info: Redefining \ref on input line 111.
+LaTeX Info: Redefining \pageref on input line 111.
+LaTeX Info: Redefining \nameref on input line 111.
 
 (./RO.out) (./RO.out)
 \@outlinefile=\write6
@@ -681,12 +737,15 @@ LaTeX Info: Redefining \nameref on input line 84.
  (/usr/share/texlive/texmf-dist/tex/latex/ucs/ucsencs.def
 File: ucsencs.def 2011/01/21 Fixes to fontencodings LGR, T3
 ) ABD: EveryShipout initializing macros
-LaTeX Font Info:    Try loading font information for U+msa on input line 88.
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: floatrow package is loaded.
+Package caption Info: End \AtBeginDocument code.
+LaTeX Font Info:    Try loading font information for U+msa on input line 115.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 88.
+LaTeX Font Info:    Try loading font information for U+msb on input line 115.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -700,123 +759,160 @@ File: uni-0.def 2013/05/13 UCS: Unicode data U+0000..U+00FF
 \openout7 = `RO.toc'.
 
  [2]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 99.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 126.
+
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 99.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 126.
 
-Underfull \hbox (badness 10000) in paragraph at lines 101--103
+Underfull \hbox (badness 10000) in paragraph at lines 128--130
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 112--114
+Underfull \hbox (badness 10000) in paragraph at lines 139--141
 
  []
 
 [3] [4] [5] [6] [7]
-Underfull \hbox (badness 10000) in paragraph at lines 258--258
+Underfull \hbox (badness 10000) in paragraph at lines 285--285
 
  []
 
 [8]
 
-LaTeX Warning: Command \j invalid in math mode on input line 258.
+LaTeX Warning: Command \j invalid in math mode on input line 285.
 
 [9] [10] [11] [12] [13] [14] [15]
-<img/img1.png, id=314, 499.8675pt x 173.64874pt>
+<img/img1.png, id=332, 499.8675pt x 173.64874pt>
 File: img/img1.png Graphic file (type png)
 <use img/img1.png>
-Package pdftex.def Info: img/img1.png  used on input line 432.
+Package pdftex.def Info: img/img1.png  used on input line 459.
 (pdftex.def)             Requested size: 349.90486pt x 121.55328pt.
  [16 <./img/img1.png>] [17]
-Overfull \hbox (29.78036pt too wide) in paragraph at lines 502--502
+Overfull \hbox (29.78036pt too wide) in paragraph at lines 529--529
 []$\OML/cmm/m/it/12 S[] \OT1/cmr/m/n/12 = [] \OMS/cmsy/m/n/12 !$  $\OML/cmm/m/i
 t/12 a[] \OT1/cmr/m/n/12 = []$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 502--502
+Underfull \hbox (badness 10000) in paragraph at lines 529--529
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 502--502
+Underfull \hbox (badness 10000) in paragraph at lines 529--529
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 502--502
+Underfull \hbox (badness 10000) in paragraph at lines 529--529
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 502--502
+Underfull \hbox (badness 10000) in paragraph at lines 529--529
 
  []
 
 
-Underfull \hbox (badness 1033) in paragraph at lines 502--502
+Underfull \hbox (badness 1033) in paragraph at lines 529--529
 \OT1/cmr/m/n/12 Se ef-fet-tuiamo il prodotto ma-tri-ciale tra $\OML/cmm/m/it/12
  A$ \OT1/cmr/m/n/12 e $[]$ ot-te-ni-amo un sis-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 502--502
+Underfull \hbox (badness 10000) in paragraph at lines 529--529
 
  []
 
 [18] (/usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-32.def
 File: uni-32.def 2013/05/13 UCS: Unicode data U+2000..U+20FF
 )
-Underfull \hbox (badness 10000) in paragraph at lines 506--525
+Underfull \hbox (badness 10000) in paragraph at lines 533--552
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 506--525
+Underfull \hbox (badness 10000) in paragraph at lines 533--552
 
  []
 
 [19]
-<img/img1.jpg, id=348, 963.6pt x 682.04813pt>
+<img/img1.jpg, id=366, 963.6pt x 682.04813pt>
 File: img/img1.jpg Graphic file (type jpg)
 <use img/img1.jpg>
-Package pdftex.def Info: img/img1.jpg  used on input line 555.
+Package pdftex.def Info: img/img1.jpg  used on input line 582.
 (pdftex.def)             Requested size: 192.71658pt x 136.4072pt.
  [20 <./img/img1.jpg>]
-<img/img2.jpg, id=363, 963.6pt x 613.54219pt>
+<img/img2.jpg, id=382, 963.6pt x 613.54219pt>
 File: img/img2.jpg Graphic file (type jpg)
 <use img/img2.jpg>
-Package pdftex.def Info: img/img2.jpg  used on input line 562.
+Package pdftex.def Info: img/img2.jpg  used on input line 589.
 (pdftex.def)             Requested size: 192.71658pt x 122.70625pt.
-<img/img3.jpg, id=364, 963.6pt x 407.27156pt>
+<img/img3.jpg, id=383, 963.6pt x 407.27156pt>
 File: img/img3.jpg Graphic file (type jpg)
 <use img/img3.jpg>
-Package pdftex.def Info: img/img3.jpg  used on input line 572.
-(pdftex.def)             Requested size: 264.98346pt x 111.9969pt.
- [21 <./img/img2.jpg> <./img/img3.jpg>] [22]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 599.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 599.
+Package pdftex.def Info: img/img3.jpg  used on input line 599.
+(pdftex.def)             Requested size: 240.89941pt x 101.81763pt.
+ [21 <./img/img2.jpg> <./img/img3.jpg>]
+<img/img5.png, id=400, 505.89pt x 351.3125pt>
+File: img/img5.png Graphic file (type png)
+<use img/img5.png>
+Package pdftex.def Info: img/img5.png  used on input line 627.
+(pdftex.def)             Requested size: 169.47612pt x 117.69174pt.
+ [22 <./img/img5.png>]
+<img/img6.png, id=409, 945.5325pt x 445.665pt>
+File: img/img6.png Graphic file (type png)
+<use img/img6.png>
+Package pdftex.def Info: img/img6.png  used on input line 634.
+(pdftex.def)             Requested size: 283.66194pt x 133.70053pt.
+ [23 <./img/img6.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 662--664
 
-(./RO.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 599.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 599.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 666--669
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 666--669
+
+ []
+
+[24]
+Underfull \hbox (badness 10000) in paragraph at lines 700--706
+
+ []
+
+[25]
+Underfull \hbox (badness 10000) in paragraph at lines 712--714
+
+ []
+
+[26]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 731.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 731.
+ (./RO.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 731.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 731.
 Package rerunfilecheck Info: File `RO.out' has not changed.
-(rerunfilecheck)             Checksum: 2D3976B41165134848F7B875304BCC78;1959.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 599.
+(rerunfilecheck)             Checksum: AD5A93C7CEF1194B51F8ED4ECAC77F6B;2220.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 731.
  ) 
 Here is how much of TeX's memory you used:
- 17891 strings out of 492982
- 323010 string characters out of 6134896
- 405206 words of memory out of 5000000
- 20984 multiletter control sequences out of 15000+600000
+ 19497 strings out of 492982
+ 350042 string characters out of 6134897
+ 437838 words of memory out of 5000000
+ 22541 multiletter control sequences out of 15000+600000
  14265 words of font info for 55 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 54i,14n,73p,1001b,689s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 54i,15n,73p,942b,689s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texl
@@ -828,11 +924,13 @@ blic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
 msfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
 /cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
 ti8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pf
-b>
-Output written on RO.pdf (22 pages, 542994 bytes).
+b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb
+></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+
+Output written on RO.pdf (26 pages, 609153 bytes).
 PDF statistics:
- 461 PDF objects out of 1000 (max. 8388607)
- 415 compressed objects within 5 object streams
- 159 named destinations out of 1000 (max. 500000)
- 241 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 544 PDF objects out of 1000 (max. 8388607)
+ 488 compressed objects within 5 object streams
+ 195 named destinations out of 1000 (max. 500000)
+ 275 words of extra memory for PDF output out of 10000 (max. 10000000)
 

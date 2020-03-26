@@ -92,24 +92,48 @@
 \contentsline {paragraph}{Obiettivo}{16}{section*.75}
 \contentsline {paragraph}{Vincoli}{16}{section*.76}
 \contentsline {subsubsection}{\numberline {2.11.1}Variante lotto minimo}{16}{subsubsection.2.11.1}
-\contentsline {paragraph}{Variabili}{16}{section*.77}
-\contentsline {paragraph}{Vincoli}{16}{section*.78}
+\contentsline {paragraph}{Variabili}{16}{section*.78}
+\contentsline {paragraph}{Vincoli}{16}{section*.79}
 \contentsline {subsubsection}{\numberline {2.11.2}Variante produzione con costi fissi}{17}{subsubsection.2.11.2}
-\contentsline {paragraph}{Obiettivo}{17}{section*.79}
+\contentsline {paragraph}{Obiettivo}{17}{section*.80}
 \contentsline {subsubsection}{\numberline {2.11.3}Variante multiprodotto}{17}{subsubsection.2.11.3}
-\contentsline {paragraph}{Variabili}{17}{section*.80}
-\contentsline {paragraph}{Obiettivo}{17}{section*.81}
+\contentsline {paragraph}{Variabili}{17}{section*.81}
+\contentsline {paragraph}{Obiettivo}{17}{section*.82}
 \contentsline {subsection}{\numberline {2.12}Set Covering}{17}{subsection.2.12}
-\contentsline {paragraph}{Problema}{17}{section*.82}
-\contentsline {paragraph}{Obiettivo}{17}{section*.83}
-\contentsline {paragraph}{Dati}{17}{section*.84}
-\contentsline {paragraph}{Variabili}{17}{section*.85}
-\contentsline {paragraph}{Obiettivo}{18}{section*.86}
-\contentsline {paragraph}{Vincoli}{18}{section*.87}
+\contentsline {paragraph}{Problema}{17}{section*.83}
+\contentsline {paragraph}{Obiettivo}{17}{section*.84}
+\contentsline {paragraph}{Dati}{17}{section*.85}
+\contentsline {paragraph}{Variabili}{17}{section*.86}
+\contentsline {paragraph}{Obiettivo}{18}{section*.87}
+\contentsline {paragraph}{Vincoli}{18}{section*.88}
 \contentsline {subsection}{\numberline {2.13}Modellare vincoli logici utilizzando variabili binarie}{19}{subsection.2.13}
 \contentsline {section}{\numberline {3}Parte formale della ricerca operativa}{20}{section.3}
 \contentsline {subsection}{\numberline {3.1}Tecnica di soluzione lineare}{20}{subsection.3.1}
-\contentsline {paragraph}{Obiettivo}{20}{section*.88}
-\contentsline {paragraph}{Vincoli}{20}{section*.89}
+\contentsline {paragraph}{Obiettivo}{20}{section*.89}
+\contentsline {paragraph}{Vincoli}{20}{section*.90}
 \contentsline {subsection}{\numberline {3.2}Tecnica di programmazione matematica}{22}{subsection.3.2}
 \contentsline {subsubsection}{\numberline {3.2.1}Convessit\IeC {\`a}}{22}{subsubsection.3.2.1}
+\contentsline {paragraph}{Insieme convesso}{22}{section*.94}
+\contentsline {paragraph}{Funzione convessa}{22}{section*.95}
+\contentsline {paragraph}{Funzione concava}{23}{section*.97}
+\contentsline {paragraph}{Minimo locale}{23}{section*.98}
+\contentsline {paragraph}{Teorema}{23}{section*.99}
+\contentsline {paragraph}{Dimostrazione}{23}{section*.101}
+\contentsline {paragraph}{Dimostrazione}{24}{section*.102}
+\contentsline {subsection}{\numberline {3.3}Geometria della programmazione lineare}{24}{subsection.3.3}
+\contentsline {paragraph}{Iperpiano}{24}{section*.103}
+\contentsline {paragraph}{Semispazio}{24}{section*.104}
+\contentsline {paragraph}{Poliedro}{24}{section*.105}
+\contentsline {paragraph}{Politopo}{25}{section*.106}
+\contentsline {paragraph}{Vertice}{25}{section*.107}
+\contentsline {subsubsection}{\numberline {3.3.1}Forma matriciale del modello}{25}{subsubsection.3.3.1}
+\contentsline {paragraph}{Obiettivo}{25}{section*.108}
+\contentsline {paragraph}{Vincoli}{25}{section*.109}
+\contentsline {paragraph}{Vettore dei coefficienti dei costi}{25}{section*.110}
+\contentsline {paragraph}{Vettore dei termini noti}{25}{section*.111}
+\contentsline {paragraph}{Matrice dei coefficienti tecnologici}{25}{section*.112}
+\contentsline {paragraph}{Vettore delle variabili}{25}{section*.113}
+\contentsline {paragraph}{Funzione obiettivo}{25}{section*.114}
+\contentsline {paragraph}{Vincoli}{26}{section*.115}
+\contentsline {subsubsection}{\numberline {3.3.2}Teorema di Minkowski-Weil}{26}{subsubsection.3.3.2}
+\contentsline {paragraph}{Teorema}{26}{section*.116}
