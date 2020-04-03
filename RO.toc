@@ -137,3 +137,7 @@
 \contentsline {paragraph}{Vincoli}{26}{section*.115}
 \contentsline {subsubsection}{\numberline {3.3.2}Teorema di Minkowski-Weil}{26}{subsubsection.3.3.2}
 \contentsline {paragraph}{Teorema}{26}{section*.116}
+\contentsline {paragraph}{Dimostrazione}{26}{section*.117}
+\contentsline {subsubsection}{\numberline {3.3.3}Come leghiamo vertici e matrici?}{27}{subsubsection.3.3.3}
+\contentsline {paragraph}{Funzione obiettivo}{27}{section*.118}
+\contentsline {paragraph}{Vincoli}{27}{section*.119}

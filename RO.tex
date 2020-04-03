@@ -24,7 +24,9 @@
 \newcommand{\casi}[3]{
 	$#1 = \begin{cases} \text{#2} \\ \text{#3} \end{cases}$
 }
-
+\newcommand{\vc}[0]{
+	\underline{c}
+}
 \newcommand{\vp}[0]{
 	\underline{P}
 }
@@ -728,7 +730,40 @@
 				\paragraph{Teorema} Se $\vp = \{ \vx \in R^n | A \vx \leq b \land \vx \geq 0 \}$ è un politopo allora esiste almeno un vertice di $\vp$ ottimo per il problema $min$ $\{ c^T \vx | \vx \in \vp \}$
 				
 				\paragraph{Dimostrazione}
+					\begin{enumerate}
+						\item Siano $\vy_1, \dots, \vy_k$ i vertici del politopo $\vp$ e sia $z^* = \{ min$ $\underline{c}^T \vy_j$ con $j=1, \dots, k \} \quad$ \textit{($z^*$ non è nient'altro che il valore minimo della funzione obiettivo calcolata in tutti i vertici $\vy_j$.)}
+						\item Sia $\vx \in \vp$ un punto qualsiasi del politopo, non vertice. Per Minkwoski-Weil questo punto è generabile come combinazione convessa di $k$ vertici di $\vp$.
+						\item $\exists \underline{\lambda} \in [0,1]^n$ $|$ $\vx = \sum_{j=1}^k \lambda_j \vy_j$ con $\sum_{j=1}^k \lambda_j = 1$
+						\item Quindi la funzione obiettivo per il punto generico $\vx$ è esprimibile
+						$$\underline{c}^T \vx = \underline{c}^T (\sum_{j=1}^k \lambda_j \vy_j) = \sum_{j=1}^k \lambda_j \underbrace{\underline{c}^T \vy_j}_{\substack{\geq z^* \\ \text{perchè} \\ \text{sono} \\ \text{i valori} \\ \text{di $f$}\\ \text{per i} \\ \text{vertici}}} \geq \sum_{j=1}^k \lambda_j z^* = z^* \underbrace{\sum_{j=1}^j \lambda_j}_{=1} = z^* \quad \quad \forall \vx \in \vp \quad \underline{c}^T \vx \geq z^* \quad \Box$$								\end{enumerate}
+			
+			\subsubsection{Come leghiamo vertici e matrici?}
+				La \textbf{forma standard} è la forma usata dagli algoritmi: 
+				\paragraph{Funzione obiettivo} $min$ $c^Tx$
+				\paragraph{Vincoli} $A \vx = \underline{b}, \quad x \geq 0$\\\\
+				Ma come passiamo da una forma generica a quella standard?
 				
+				\begin{enumerate}
+					\item Per trasformare un vincolo generico caratterizzato da una disuguaglianza a uno con uguaglianza usiamo una \textbf{variabile aggiuntiva} \textit{(detta di scarto, slack o di surplus)}:
+					\begin{itemize}
+						\item $\va^T \vx \leq b \rightarrow \va^T \vx + s = b$ con $s \geq 0$ 
+							\begin{itemize}
+								\item Per tutti i punti $\vx$ per cui $\va^T \vx = b$ (vincolo attivo), $s = 0$.
+								\item Per tutti i punti $\vx$ per cui $\va^T \vx < b$ (vincolo NON attivo), $s>0$.
+							\end{itemize}
+						\item$\va^T \vx \geq b \rightarrow \va^T \vx -s = b$ con $s \geq 0$
+					\end{itemize}
+					\item Se abbiamo una variabile $x_j \leq 0$ che quindi non soddisfa il vincolo di non negatività, usiamo una variabile differente:
+					\begin{itemize}
+						\item $x_j \leq 0 \rightarrow \overline{x_j} = -x_j \quad (-x_j \geq 0)$
+						\item $x_j$ libera $\rightarrow x_j^+ - x_j^- = x_j \quad (x_j^+, x_j^- \geq 0)$
+						\begin{itemize}
+							\item $x_j$ non ha vincoli sul segno \textit{(può essere sia positiva che negativa).}
+						\end{itemize}
+					\end{itemize}
+					\item Nel casi di funzioni obiettivo con massimo, la possiamo trasformare in funzione di minimo: $max$ $\vc^T \vx = - min$ $-\vc^T \vx$
+				\end{enumerate}
+				Ora vediamo perchè è utile usare la \textbf{forma standard}:					
 				
 \end{document}
 
